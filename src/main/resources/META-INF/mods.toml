@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="GNU GPLv3"
+
+[[mods]]
+modId="pyrros"
+version="${file.jarVersion}" #mandatory
+displayName="Pyrros"
+logoFile="pyrros.png"
+authors="tetrago"
+description='''
+Pyrros, in flames.
+'''
+[[dependencies.pyrros]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.pyrross]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
