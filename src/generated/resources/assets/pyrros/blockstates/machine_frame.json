@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "pyrros:block/machine_frame"
+    }
+  }
+}
