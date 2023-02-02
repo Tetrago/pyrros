@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.item.ModItems;
+import tetrago.pyrros.common.recipe.ModRecipeSerializers;
 
 @Mod(Pyrros.MODID)
 public class Pyrros
@@ -25,6 +26,7 @@ public class Pyrros
         ModBlocks.BLOCKS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModItems.ITEMS.register(bus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
     }
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MODID)

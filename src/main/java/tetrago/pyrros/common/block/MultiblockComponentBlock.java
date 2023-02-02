@@ -6,11 +6,11 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import tetrago.pyrros.common.blockentity.MultiblockChildBlockEntity;
+import tetrago.pyrros.common.blockentity.MultiblockComponentBlockEntity;
 
-public class MultiblockChildBlock extends Block implements EntityBlock
+public class MultiblockComponentBlock extends Block implements EntityBlock
 {
-    public MultiblockChildBlock(Properties pProperties)
+    public MultiblockComponentBlock(Properties pProperties)
     {
         super(pProperties);
     }
@@ -19,6 +19,6 @@ public class MultiblockChildBlock extends Block implements EntityBlock
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
-        return new MultiblockChildBlockEntity(pPos, pState);
+        return new MultiblockComponentBlockEntity(pPos, pState);
     }
 }

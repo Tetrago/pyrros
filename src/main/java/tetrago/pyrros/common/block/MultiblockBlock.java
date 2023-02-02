@@ -12,6 +12,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
+import tetrago.pyrros.common.blockentity.MultiblockComponentBlockEntity;
+import tetrago.pyrros.common.recipe.MultiblockRecipe;
+
+import java.util.Optional;
 
 public abstract class MultiblockBlock extends Block implements EntityBlock
 {
@@ -35,6 +39,49 @@ public abstract class MultiblockBlock extends Block implements EntityBlock
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
     {
+        if(pState.getValue(CONSTRUCTED)) return useConstructed(pState, pLevel, pPos, pPlayer, pHand, pHit);
+
+        Optional<MultiblockRecipe> recipe = MultiblockRecipe.getRecipeFor(pLevel, pPos);
+        if(recipe.isEmpty()) return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+
+        if(!pLevel.isClientSide())
+        {
+            onConstruct(pLevel, pPos, recipe.get());
+        }
+
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
+    }
+
+    protected InteractionResult useConstructed(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
+    {
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    }
+
+    public void deconstruct(Level level, BlockPos pos)
+    {
+        if(level.isClientSide()) return;
+        onDeconstruct(level, pos);
+    }
+
+    protected void onConstruct(Level level, BlockPos pos, MultiblockRecipe recipe)
+    {
+        level.setBlock(pos, level.getBlockState(pos).setValue(CONSTRUCTED, true), 2);
+        recipe.findValidRotation(level, pos).ifPresent(rotation -> recipe.getBlocksForRotation(level, pos, rotation).ifPresent(blocks -> blocks.forEach(blockPos -> {
+            if(level.getBlockEntity(blockPos) instanceof MultiblockComponentBlockEntity child)
+            {
+                child.parent(pos);
+            }
+        })));
+    }
+
+    protected void onDeconstruct(Level level, BlockPos pos)
+    {
+        level.setBlock(pos, level.getBlockState(pos).setValue(CONSTRUCTED, false), 2);
+        MultiblockRecipe.getRecipeFor(level, pos).ifPresent(recipe -> recipe.findValidRotation(level, pos).ifPresent(rotation -> recipe.getBlocksForRotation(level, pos, rotation).ifPresent(blocks -> blocks.forEach(blockPos -> {
+            if(level.getBlockEntity(blockPos) instanceof MultiblockComponentBlockEntity child)
+            {
+                child.parent(null);
+            }
+        }))));
     }
 }

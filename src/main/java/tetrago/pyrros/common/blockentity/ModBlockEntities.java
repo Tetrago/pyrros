@@ -11,5 +11,5 @@ public class ModBlockEntities
 {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Pyrros.MODID);
 
-    public static final RegistryObject<BlockEntityType<MultiblockChildBlockEntity>> MULTIBLOCK_CHILD = BLOCK_ENTITIES.register("multiblock_child", () -> BlockEntityType.Builder.of(MultiblockChildBlockEntity::new, ModBlocks.MACHINE_FRAME.get()).build(null));
+    public static final RegistryObject<BlockEntityType<MultiblockComponentBlockEntity>> MULTIBLOCK_COMPONENT = BLOCK_ENTITIES.register("multiblock_component", () -> BlockEntityType.Builder.of(MultiblockComponentBlockEntity::new, ModBlocks.MACHINE_FRAME.get(), ModBlocks.ENCASED_MACHINE_FRAME.get(), ModBlocks.REINFORCED_MACHINE_FRAME.get()).build(null));
 }

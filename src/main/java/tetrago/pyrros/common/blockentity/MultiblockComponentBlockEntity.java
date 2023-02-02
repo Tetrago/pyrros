@@ -1,22 +1,27 @@
 package tetrago.pyrros.common.blockentity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public  class MultiblockChildBlockEntity extends BlockEntity implements IMultiblockComponent
+public  class MultiblockComponentBlockEntity extends BlockEntity implements IMultiblockComponent
 {
     private BlockPos mPosition = null;
 
-    public MultiblockChildBlockEntity(BlockPos pPos, BlockState pBlockState)
+    public MultiblockComponentBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
-        this(ModBlockEntities.MULTIBLOCK_CHILD.get(), pPos, pBlockState);
+        this(ModBlockEntities.MULTIBLOCK_COMPONENT.get(), pPos, pBlockState);
     }
 
-    public MultiblockChildBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState)
+    public MultiblockComponentBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState)
     {
         super(pType, pPos, pBlockState);
     }
@@ -41,6 +46,22 @@ public  class MultiblockChildBlockEntity extends BlockEntity implements IMultibl
         {
             mPosition = NbtUtils.readBlockPos(pTag.getCompound("position"));
         }
+    }
+
+    public void parent(BlockPos pos)
+    {
+        mPosition = pos;
+        setChanged();
+    }
+
+    @NotNull
+    @Override
+    public <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    {
+        if(!isConstructed()) return LazyOptional.empty();
+
+        MultiblockBlockEntity blockEntity = (MultiblockBlockEntity)level.getBlockEntity(getMultiblockPos());
+        return blockEntity.getMultiblockCapability(cap, side);
     }
 
     @Override
