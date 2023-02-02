@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BXB",
+    " B "
+  ],
+  "key": {
+    "X": {
+      "item": "pyrros:machine_frame"
+    },
+    "B": {
+      "item": "minecraft:brick"
+    }
+  },
+  "result": {
+    "item": "pyrros:reinforced_machine_frame"
+  }
+}

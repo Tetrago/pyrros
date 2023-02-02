@@ -11,6 +11,8 @@ public class ModBlockLoot extends BlockLoot
     protected void addTables()
     {
         dropSelf(ModBlocks.MACHINE_FRAME.get());
+        dropSelf(ModBlocks.ENCASED_MACHINE_FRAME.get());
+        dropSelf(ModBlocks.REINFORCED_MACHINE_FRAME.get());
     }
 
     @Override

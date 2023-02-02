@@ -19,6 +19,8 @@ public class ModItemModelProvider extends ItemModelProvider
     protected void registerModels()
     {
         simpleBlockItem(ModItems.MACHINE_FRAME);
+        simpleBlockItem(ModItems.ENCASED_MACHINE_FRAME);
+        simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);
     }
 
     private void simpleBlockItem(final RegistryObject<Item> item)

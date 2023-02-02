@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pyrros:encased_machine_frame"
+    ]
+  },
+  "criteria": {
+    "has_machine_frame": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pyrros:machine_frame"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pyrros:encased_machine_frame"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_machine_frame",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -7,9 +7,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class MultiblockChildBlockEntity extends BlockEntity implements IMultiblockComponent
+public  class MultiblockChildBlockEntity extends BlockEntity implements IMultiblockComponent
 {
     private BlockPos mPosition = null;
+
+    public MultiblockChildBlockEntity(BlockPos pPos, BlockState pBlockState)
+    {
+        this(ModBlockEntities.MULTIBLOCK_CHILD.get(), pPos, pBlockState);
+    }
 
     public MultiblockChildBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState)
     {

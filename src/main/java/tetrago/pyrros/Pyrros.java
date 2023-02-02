@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import tetrago.pyrros.common.block.ModBlocks;
+import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.item.ModItems;
 
 @Mod(Pyrros.MODID)
@@ -22,6 +23,7 @@ public class Pyrros
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModBlocks.BLOCKS.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModItems.ITEMS.register(bus);
     }
 

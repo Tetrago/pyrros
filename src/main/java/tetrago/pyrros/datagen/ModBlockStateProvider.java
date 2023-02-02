@@ -17,5 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider
     protected void registerStatesAndModels()
     {
         simpleBlock(ModBlocks.MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
     }
 }

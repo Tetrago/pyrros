@@ -18,5 +18,7 @@ public class ModLanguageProvider extends LanguageProvider
         add(Pyrros.modid("itemGroup.{}"), "Pyrros");
 
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
+        add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
+        add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");
     }
 }
