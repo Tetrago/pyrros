@@ -38,6 +38,9 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
+        simpleBlock(ModBlocks.TITANIUM_BLOCK.get());
+        simpleBlock(ModBlocks.BROOKITE_ORE.get());
+        simpleBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE.get());
     }
 
     private void flatDirectionalBlock(Block block, Function<BlockState, ModelFile> function)

@@ -28,8 +28,14 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
         add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");
         add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
+        add(ModBlocks.TITANIUM_BLOCK.get(), "Block of Titanium");
+        add(ModBlocks.BROOKITE_ORE.get(), "Brookite Ore");
+        add(ModBlocks.DEEPSLATE_BROOKITE_ORE.get(), "Deepslate Brookite Ore");
 
         add(ModItems.STEEL_INGOT.get(), "Steel Ingot");
         add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");
+        add(ModItems.RAW_BROOKITE.get(), "Raw Brookite");
+        add(ModItems.TITANIUM_INGOT.get(), "Titanium Ingot");
+        add(ModItems.TITANIUM_NUGGET.get(), "Titanium Nugget");
     }
 }
