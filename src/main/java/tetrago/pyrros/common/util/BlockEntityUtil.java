@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkHooks;
 
-public class BlockEntityUtil
+public final class BlockEntityUtil
 {
     public static <T extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> tickerOf(BlockEntityType<A> type, BlockEntityType<T> target, BlockEntityTicker<? super T> ticker)
     {

@@ -14,6 +14,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -25,11 +26,14 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.client.screen.ArcFurnaceControllerScreen;
+import tetrago.pyrros.common.block.FlatDirectionalBlock;
+import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.ArcFurnaceControllerContainer;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity implements MenuProvider
@@ -45,7 +49,12 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     private final LazyOptional<IEnergyStorage> mEnergyStorageCapability = LazyOptional.of(() -> mEnergyStorage);
 
     private final ItemStackHandler mItemStackHandler = new ItemStackHandler(3);
-    private final LazyOptional<IItemHandler> mItemStackHandlerCapability = LazyOptional.of(() -> mItemStackHandler);
+    private final LazyOptional<IItemHandler> mItemHandlerCapability = LazyOptional.of(() -> mItemStackHandler);
+    private final DirectionalItemStackHandler mDirectionalItemStackHandler = new DirectionalItemStackHandler(mItemStackHandler, Map.of(
+            Rotation.CLOCKWISE_90, 0,
+            Rotation.CLOCKWISE_180, 2,
+            Rotation.COUNTERCLOCKWISE_90, 1
+    ));
 
     private final ContainerData mData;
     private int mProgress = 0;
@@ -146,6 +155,10 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         {
             return mEnergyStorageCapability.cast();
         }
+        else if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+        {
+            return mDirectionalItemStackHandler.getCapability(cap, side, level.getBlockState(getBlockPos()).getValue(FlatDirectionalBlock.DIRECTION));
+        }
 
         return super.getMultiblockCapability(cap, side);
     }
@@ -156,13 +169,13 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     {
         if(side == null)
         {
-            if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-            {
-                return mItemStackHandlerCapability.cast();
-            }
-            else if(cap == CapabilityEnergy.ENERGY)
+            if(cap == CapabilityEnergy.ENERGY)
             {
                 return mEnergyStorageCapability.cast();
+            }
+            else if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+            {
+                return mItemHandlerCapability.cast();
             }
         }
 
@@ -193,7 +206,8 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         super.invalidateCaps();
 
         mEnergyStorageCapability.invalidate();
-        mItemStackHandlerCapability.invalidate();
+        mItemHandlerCapability.invalidate();
+        mDirectionalItemStackHandler.invalidate();
     }
 
     @Override

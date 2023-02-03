@@ -23,6 +23,7 @@ public class ModLanguageProvider extends LanguageProvider
 
         add(ModBlocks.ARC_FURNACE_CONTROLLER.get(), "Arc Furnace Controller");
         add(ModBlocks.ENERGY_PORT.get(), "Energy Port");
+        add(ModBlocks.ITEM_PORT.get(), "Item Port");
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
         add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
         add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");

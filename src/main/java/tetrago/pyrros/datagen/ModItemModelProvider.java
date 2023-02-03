@@ -20,6 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider
     {
         simpleBlockItem(ModItems.ARC_FURNACE_CONTROLLER);
         simpleBlockItem(ModItems.ENERGY_PORT);
+        simpleBlockItem(ModItems.ITEM_PORT);
         simpleBlockItem(ModItems.MACHINE_FRAME);
         simpleBlockItem(ModItems.ENCASED_MACHINE_FRAME);
         simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);

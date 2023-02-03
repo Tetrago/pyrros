@@ -2,6 +2,7 @@
   "block.pyrros.arc_furnace_controller": "Arc Furnace Controller",
   "block.pyrros.encased_machine_frame": "Encased Machine Frame",
   "block.pyrros.energy_port": "Energy Port",
+  "block.pyrros.item_port": "Item Port",
   "block.pyrros.machine_frame": "Machine Frame",
   "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
   "block.pyrros.steel_block": "Block of Steel",
