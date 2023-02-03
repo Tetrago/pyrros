@@ -1,6 +1,9 @@
 {
+  "block.pyrros.arc_furnace_controller": "Arc Furnace Controller",
   "block.pyrros.encased_machine_frame": "Encased Machine Frame",
+  "block.pyrros.energy_port": "Energy Port",
   "block.pyrros.machine_frame": "Machine Frame",
   "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
-  "itemGroup.pyrros": "Pyrros"
+  "itemGroup.pyrros": "Pyrros",
+  "screen.pyrros.arc_furnace_controller": "Arc Furnace Controller"
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "pyrros:block/arc_furnace_controller_side_constructed",
+    "top": "pyrros:block/arc_furnace_controller_top"
+  }
+}

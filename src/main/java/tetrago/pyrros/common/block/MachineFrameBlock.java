@@ -5,7 +5,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
-public class MachineFrameBlock extends MultiblockChildBlock
+public class MachineFrameBlock extends MultiblockComponentBlock
 {
     public MachineFrameBlock()
     {

@@ -1,0 +1,37 @@
+{
+  "type": "pyrros:multiblock",
+  "layers": [
+    [
+      "RRR",
+      "RRR",
+      "RRR"
+    ],
+    [
+      "XPX",
+      "PAP",
+      "XCX"
+    ],
+    [
+      "XXX",
+      "XAX",
+      "XXX"
+    ],
+    [
+      "XXX",
+      "XXX",
+      "XXX"
+    ]
+  ],
+  "keys": {
+    "X": ["pyrros:encased_machine_frame"],
+    "P": ["pyrros:encased_machine_frame", "pyrros:energy_port"],
+    "R": ["pyrros:reinforced_machine_frame"],
+    "C": ["pyrros:arc_furnace_controller"],
+    "A": ["minecraft:air"]
+  },
+  "anchor": {
+    "x": 1,
+    "y": 1,
+    "z": 0
+  }
+}

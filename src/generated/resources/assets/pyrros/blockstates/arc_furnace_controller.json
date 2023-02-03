@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "constructed=false": {
+      "model": "pyrros:block/arc_furnace_controller"
+    },
+    "constructed=true": {
+      "model": "pyrros:block/arc_furnace_controller_constructed"
+    }
+  }
+}

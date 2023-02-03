@@ -11,12 +11,6 @@ import javax.annotation.Nullable;
 public interface IMultiblockComponent
 {
     @Nonnull
-    default <T> LazyOptional<T> getMultiblockCapability(@Nonnull Capability<T> cap)
-    {
-        return getMultiblockCapability(cap, null);
-    }
-
-    @Nonnull
     <T> LazyOptional<T> getMultiblockCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
 
     boolean isConstructed();

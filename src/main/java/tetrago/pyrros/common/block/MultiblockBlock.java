@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
+import tetrago.pyrros.common.blockentity.MultiblockBlockEntity;
 import tetrago.pyrros.common.blockentity.MultiblockComponentBlockEntity;
 import tetrago.pyrros.common.recipe.MultiblockRecipe;
 
@@ -72,10 +73,14 @@ public abstract class MultiblockBlock extends Block implements EntityBlock
                 child.parent(pos);
             }
         })));
+
+        ((MultiblockBlockEntity)level.getBlockEntity(pos)).onConstruct();
     }
 
     protected void onDeconstruct(Level level, BlockPos pos)
     {
+        ((MultiblockBlockEntity)level.getBlockEntity(pos)).onDeconstruct();
+
         level.setBlock(pos, level.getBlockState(pos).setValue(CONSTRUCTED, false), 2);
         MultiblockRecipe.getRecipeFor(level, pos).ifPresent(recipe -> recipe.findValidRotation(level, pos).ifPresent(rotation -> recipe.getBlocksForRotation(level, pos, rotation).ifPresent(blocks -> blocks.forEach(blockPos -> {
             if(level.getBlockEntity(blockPos) instanceof MultiblockComponentBlockEntity child)

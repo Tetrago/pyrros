@@ -36,4 +36,7 @@ public abstract class MultiblockBlockEntity extends BlockEntity implements IMult
     {
         return getBlockPos();
     }
+
+    public void onConstruct() {}
+    public void onDeconstruct() {}
 }

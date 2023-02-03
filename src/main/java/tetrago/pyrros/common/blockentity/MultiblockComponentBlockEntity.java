@@ -60,8 +60,7 @@ public  class MultiblockComponentBlockEntity extends BlockEntity implements IMul
     {
         if(!isConstructed()) return LazyOptional.empty();
 
-        MultiblockBlockEntity blockEntity = (MultiblockBlockEntity)level.getBlockEntity(getMultiblockPos());
-        return blockEntity.getMultiblockCapability(cap, side);
+        return ((MultiblockBlockEntity)level.getBlockEntity(getMultiblockPos())).getMultiblockCapability(cap, side);
     }
 
     @Override

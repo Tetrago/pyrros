@@ -12,7 +12,9 @@ public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Pyrros.MODID);
 
+    public static final RegistryObject<Block> ARC_FURNACE_CONTROLLER = BLOCKS.register("arc_furnace_controller", ArcFurnaceControllerBlock::new);
+    public static final RegistryObject<Block> ENERGY_PORT = BLOCKS.register("energy_port", EnergyPortBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = BLOCKS.register("machine_frame", MachineFrameBlock::new);
-    public static final RegistryObject<Block> ENCASED_MACHINE_FRAME = BLOCKS.register("encased_machine_frame", () -> new MultiblockChildBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.5f, 6)));
-    public static final RegistryObject<Block> REINFORCED_MACHINE_FRAME = BLOCKS.register("reinforced_machine_frame", () -> new MultiblockChildBlock(BlockBehaviour.Properties.copy(ENCASED_MACHINE_FRAME.get())));
+    public static final RegistryObject<Block> ENCASED_MACHINE_FRAME = BLOCKS.register("encased_machine_frame", () -> new MultiblockComponentBlock(BlockBehaviour.Properties.of(Material.STONE).strength(1.5f, 6)));
+    public static final RegistryObject<Block> REINFORCED_MACHINE_FRAME = BLOCKS.register("reinforced_machine_frame", () -> new MultiblockComponentBlock(BlockBehaviour.Properties.copy(ENCASED_MACHINE_FRAME.get())));
 }

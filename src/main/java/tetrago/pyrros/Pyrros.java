@@ -10,6 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.blockentity.ModBlockEntities;
+import tetrago.pyrros.common.container.ModContainers;
 import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ModRecipeSerializers;
 
@@ -25,6 +26,7 @@ public class Pyrros
 
         ModBlocks.BLOCKS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
+        ModContainers.CONTAINERS.register(bus);
         ModItems.ITEMS.register(bus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
     }
