@@ -5,6 +5,7 @@ import net.minecraftforge.common.data.LanguageProvider;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.client.screen.ArcFurnaceControllerScreen;
 import tetrago.pyrros.common.block.ModBlocks;
+import tetrago.pyrros.common.item.ModItems;
 
 public class ModLanguageProvider extends LanguageProvider
 {
@@ -25,5 +26,9 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
         add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
         add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");
+        add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
+
+        add(ModItems.STEEL_INGOT.get(), "Steel Ingot");
+        add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");
     }
 }

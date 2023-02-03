@@ -4,6 +4,9 @@
   "block.pyrros.energy_port": "Energy Port",
   "block.pyrros.machine_frame": "Machine Frame",
   "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
+  "block.pyrros.steel_block": "Block of Steel",
+  "item.pyrros.steel_ingot": "Steel Ingot",
+  "item.pyrros.steel_nugget": "Steel Nugget",
   "itemGroup.pyrros": "Pyrros",
   "screen.pyrros.arc_furnace_controller": "Arc Furnace Controller"
 }

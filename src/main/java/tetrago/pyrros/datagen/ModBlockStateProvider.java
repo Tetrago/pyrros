@@ -2,7 +2,6 @@ package tetrago.pyrros.datagen;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.common.block.ModBlocks;
@@ -26,5 +25,6 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.MACHINE_FRAME.get());
         simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
+        simpleBlock(ModBlocks.STEEL_BLOCK.get());
     }
 }

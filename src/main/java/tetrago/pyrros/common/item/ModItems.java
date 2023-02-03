@@ -15,11 +15,19 @@ public class ModItems
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Pyrros.MODID);
 
+    // --- Blocks ------------------------------------------------------------------------------------------------------
+
     public static final RegistryObject<Item> ARC_FURNACE_CONTROLLER = fromBlock(ModBlocks.ARC_FURNACE_CONTROLLER);
     public static final RegistryObject<Item> ENERGY_PORT = fromBlock(ModBlocks.ENERGY_PORT);
     public static final RegistryObject<Item> MACHINE_FRAME = fromBlock(ModBlocks.MACHINE_FRAME);
     public static final RegistryObject<Item> ENCASED_MACHINE_FRAME = fromBlock(ModBlocks.ENCASED_MACHINE_FRAME);
     public static final RegistryObject<Item> REINFORCED_MACHINE_FRAME = fromBlock(ModBlocks.REINFORCED_MACHINE_FRAME);
+    public static final RegistryObject<Item> STEEL_BLOCK = fromBlock(ModBlocks.STEEL_BLOCK);
+
+    // --- Items -------------------------------------------------------------------------------------------------------
+
+    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(PROPERTIES));
 
     private static RegistryObject<Item> fromBlock(RegistryObject<Block> block)
     {
