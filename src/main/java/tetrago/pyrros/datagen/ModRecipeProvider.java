@@ -46,6 +46,7 @@ public class ModRecipeProvider extends RecipeProvider
                 .save(builder);
 
         material(builder, "steel", ModItems.STEEL_NUGGET.get(), ModItems.STEEL_INGOT.get(), ModBlocks.STEEL_BLOCK.get());
+        material(builder, "titanium", ModItems.TITANIUM_NUGGET.get(), ModItems.TITANIUM_INGOT.get(), ModBlocks.TITANIUM_BLOCK.get());
     }
 
     private void material(Consumer<FinishedRecipe> builder, String name, ItemLike nugget, ItemLike ingot, ItemLike block)

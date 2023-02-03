@@ -25,9 +25,15 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleBlockItem(ModItems.ENCASED_MACHINE_FRAME);
         simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);
         simpleBlockItem(ModItems.STEEL_BLOCK);
+        simpleBlockItem(ModItems.TITANIUM_BLOCK);
+        simpleBlockItem(ModItems.BROOKITE_ORE);
+        simpleBlockItem(ModItems.DEEPSLATE_BROOKITE_ORE);
 
         simpleItem(ModItems.STEEL_INGOT);
         simpleItem(ModItems.STEEL_NUGGET);
+        simpleItem(ModItems.RAW_BROOKITE);
+        simpleItem(ModItems.TITANIUM_INGOT);
+        simpleItem(ModItems.TITANIUM_NUGGET);
     }
 
     private void simpleBlockItem(final RegistryObject<Item> item)

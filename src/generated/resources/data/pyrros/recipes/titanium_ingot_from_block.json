@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "pyrros:titanium_block"
+    }
+  ],
+  "result": {
+    "item": "pyrros:titanium_ingot",
+    "count": 9
+  }
+}

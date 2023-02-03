@@ -24,14 +24,20 @@ public class ModItems
     public static final RegistryObject<Item> ENCASED_MACHINE_FRAME = fromBlock(ModBlocks.ENCASED_MACHINE_FRAME);
     public static final RegistryObject<Item> REINFORCED_MACHINE_FRAME = fromBlock(ModBlocks.REINFORCED_MACHINE_FRAME);
     public static final RegistryObject<Item> STEEL_BLOCK = fromBlock(ModBlocks.STEEL_BLOCK);
-
-    // --- Items -------------------------------------------------------------------------------------------------------
-
-    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(PROPERTIES));
-    public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> TITANIUM_BLOCK = fromBlock(ModBlocks.TITANIUM_BLOCK);
+    public static final RegistryObject<Item> BROOKITE_ORE = fromBlock(ModBlocks.BROOKITE_ORE);
+    public static final RegistryObject<Item> DEEPSLATE_BROOKITE_ORE = fromBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE);
 
     private static RegistryObject<Item> fromBlock(RegistryObject<Block> block)
     {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), PROPERTIES));
     }
+
+    // --- Items -------------------------------------------------------------------------------------------------------
+
+    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> RAW_BROOKITE = ITEMS.register("raw_brookite", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> TITANIUM_NUGGET = ITEMS.register("titanium_nugget", () -> new Item(PROPERTIES));
 }

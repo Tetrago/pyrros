@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pyrros:steel_ingot"
+    "pyrros:steel_ingot",
+    "pyrros:titanium_ingot"
   ]
 }
