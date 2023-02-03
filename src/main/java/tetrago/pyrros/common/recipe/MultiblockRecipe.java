@@ -28,12 +28,14 @@ public class MultiblockRecipe implements Recipe<Container>
     public static final RecipeType<MultiblockRecipe> TYPE = Registry.register(Registry.RECIPE_TYPE, Pyrros.loc("multiblock"), new RecipeType<MultiblockRecipe>(){});
     public static final Serializer SERIALIZER = new Serializer();
 
+    private final ResourceLocation mId;
     private final Map<Character, Block[]> mKeys;
     private final char[][][] mBlocks;
     private final BlockPos mAnchor;
 
-    public MultiblockRecipe(Map<Character, Block[]> keys, char[][][] blocks, BlockPos anchor)
+    public MultiblockRecipe(ResourceLocation id, Map<Character, Block[]> keys, char[][][] blocks, BlockPos anchor)
     {
+        mId = id;
         mKeys = keys;
         mBlocks = blocks;
         mAnchor = anchor;
@@ -122,7 +124,7 @@ public class MultiblockRecipe implements Recipe<Container>
     @Override
     public ResourceLocation getId()
     {
-        return Pyrros.loc("multiblock");
+        return mId;
     }
 
     @Override
@@ -192,7 +194,7 @@ public class MultiblockRecipe implements Recipe<Container>
             JsonObject anchor = pSerializedRecipe.getAsJsonObject("anchor");
             BlockPos pos = new BlockPos(anchor.get("x").getAsInt(), anchor.get("y").getAsInt(), anchor.get("z").getAsInt());
 
-            return new MultiblockRecipe(keys, blocks, pos);
+            return new MultiblockRecipe(pRecipeId, keys, blocks, pos);
         }
 
         @Nullable
@@ -227,7 +229,7 @@ public class MultiblockRecipe implements Recipe<Container>
                 }
             }
 
-            return new MultiblockRecipe(keys, blocks, pBuffer.readBlockPos());
+            return new MultiblockRecipe(pRecipeId, keys, blocks, pBuffer.readBlockPos());
         }
 
         @Override

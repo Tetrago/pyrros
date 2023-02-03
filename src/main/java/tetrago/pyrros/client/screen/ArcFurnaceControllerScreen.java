@@ -78,5 +78,10 @@ public class ArcFurnaceControllerScreen extends AbstractContainerScreen<ArcFurna
         blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         mEnergyWidget.draw(pPoseStack, pPartialTick, pMouseX, pMouseY);
+
+        if(menu.isCrafting())
+        {
+            blit(pPoseStack, x + 68, y + 34, 176, 0, menu.getScaledProgress(), 16);
+        }
     }
 }

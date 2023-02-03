@@ -11,6 +11,9 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -24,6 +27,10 @@ import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.client.screen.ArcFurnaceControllerScreen;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.ArcFurnaceControllerContainer;
+import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
+import tetrago.pyrros.common.util.BlockEntityUtil;
+
+import java.util.Optional;
 
 public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
@@ -40,9 +47,96 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     private final ItemStackHandler mItemStackHandler = new ItemStackHandler(3);
     private final LazyOptional<IItemHandler> mItemStackHandlerCapability = LazyOptional.of(() -> mItemStackHandler);
 
+    private final ContainerData mData;
+    private int mProgress = 0;
+    private int mMaxProgress = 150;
+
     public ArcFurnaceControllerBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), pPos, pBlockState);
+
+        mData = new ContainerData()
+        {
+            @Override
+            public int get(int pIndex)
+            {
+                return switch(pIndex) {
+                    default -> mProgress;
+                    case 1 -> mMaxProgress;
+                };
+            }
+
+            @Override
+            public void set(int pIndex, int pValue)
+            {
+                switch(pIndex)
+                {
+                default -> mProgress = pValue;
+                case 1 -> mMaxProgress = pValue;
+                }
+            }
+
+            @Override
+            public int getCount()
+            {
+                return 2;
+            }
+        };
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, ArcFurnaceControllerBlockEntity blockEntity)
+    {
+        if(level.isClientSide()) return;
+
+        if(hasRecipe(blockEntity))
+        {
+            ++blockEntity.mProgress;
+            setChanged(level, pos, state);
+
+            blockEntity.mEnergyStorage.extractEnergy(700 / blockEntity.mMaxProgress, false);
+
+            if(blockEntity.mProgress > blockEntity.mMaxProgress)
+            {
+                craft(blockEntity);
+            }
+        }
+        else if(blockEntity.mProgress > 0)
+        {
+            blockEntity.mProgress = 0;
+            setChanged(level, pos, state);
+        }
+    }
+
+    private static void craft(ArcFurnaceControllerBlockEntity blockEntity)
+    {
+        SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
+        Optional<ArcFurnaceRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(ArcFurnaceRecipe.TYPE, container, blockEntity.level);
+
+        recipe.ifPresent(r -> {
+            blockEntity.mItemStackHandler.extractItem(0, 1, false);
+            blockEntity.mItemStackHandler.setStackInSlot(1, new ItemStack(r.getResultItem().getItem(), blockEntity.mItemStackHandler.getStackInSlot(1).getCount() + r.getResultItem().getCount()));
+
+            blockEntity.mProgress = 0;
+        });
+    }
+
+    private static boolean hasRecipe(ArcFurnaceControllerBlockEntity blockEntity)
+    {
+        SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
+        Optional<ArcFurnaceRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(ArcFurnaceRecipe.TYPE, container, blockEntity.level);
+
+        return recipe.isPresent() && canInsertIntoOutput(container, recipe.get().getResultItem()) && hasMinimumEnergy(blockEntity);
+    }
+
+    private static boolean canInsertIntoOutput(SimpleContainer inventory, ItemStack result)
+    {
+        final ItemStack stack = inventory.getItem(1);
+        return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() < stack.getMaxStackSize());
+    }
+
+    private static boolean hasMinimumEnergy(ArcFurnaceControllerBlockEntity blockEntity)
+    {
+        return blockEntity.mEnergyStorage.getEnergyStored() > 800;
     }
 
     @Override
@@ -112,7 +206,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer)
     {
-        return new ArcFurnaceControllerContainer(pContainerId, pPlayerInventory, this);
+        return new ArcFurnaceControllerContainer(pContainerId, pPlayerInventory, this, mData);
     }
 
     @Override
@@ -120,12 +214,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     {
         super.onDeconstruct();
 
-        SimpleContainer inventory = new SimpleContainer(mItemStackHandler.getSlots());
-        for(int i = 0; i < mItemStackHandler.getSlots(); ++i)
-        {
-            inventory.setItem(i, mItemStackHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(level, worldPosition, inventory);
+        SimpleContainer container = BlockEntityUtil.offload(mItemStackHandler);
+        Containers.dropContents(level, worldPosition, container);
     }
 }

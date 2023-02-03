@@ -3,6 +3,8 @@ package tetrago.pyrros.common.container;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.energy.CapabilityEnergy;
@@ -15,14 +17,18 @@ import tetrago.pyrros.common.container.slot.OutputSlot;
 
 public class ArcFurnaceControllerContainer extends ContainerMenu
 {
+    private final ContainerData mData;
+
     public ArcFurnaceControllerContainer(int pContainerId, Inventory inventory, FriendlyByteBuf data)
     {
-        this(pContainerId, inventory, inventory.player.level.getBlockEntity(data.readBlockPos()));
+        this(pContainerId, inventory, inventory.player.level.getBlockEntity(data.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public ArcFurnaceControllerContainer(int pContainerId, Inventory inv, BlockEntity blockEntity)
+    public ArcFurnaceControllerContainer(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data)
     {
         super(ModContainers.ARC_FURNACE_CONTROLLER.get(), pContainerId, blockEntity.getBlockPos(), inv);
+
+        mData = data;
 
         checkContainerSize(inv, 3);
 
@@ -34,6 +40,8 @@ public class ArcFurnaceControllerContainer extends ContainerMenu
             addSlot(new OutputSlot(cap, 1, 104, 35));
             addSlot(new OutputSlot(cap, 2, 131, 35));
         });
+
+        addDataSlots(mData);
 
         addDataSlots(new EnergyData()
         {
@@ -55,6 +63,19 @@ public class ArcFurnaceControllerContainer extends ContainerMenu
     public ItemStack quickMoveStack(Player pPlayer, int pIndex)
     {
         return quickMoveStack(pPlayer, pIndex, 3);
+    }
+
+    public boolean isCrafting()
+    {
+        return mData.get(0) > 0;
+    }
+
+    public int getScaledProgress()
+    {
+        int progress = mData.get(0);
+        int maxProgress = mData.get(1);
+
+        return maxProgress > 0 ? progress * 22 / maxProgress : 0;
     }
 
     public int getEnergyStored()
