@@ -5,11 +5,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.blockentity.ModBlockEntities;
+import tetrago.pyrros.common.config.ModCommonConfig;
 import tetrago.pyrros.common.container.ModContainers;
 import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ModRecipeSerializers;
@@ -29,6 +32,8 @@ public class Pyrros
         ModContainers.CONTAINERS.register(bus);
         ModItems.ITEMS.register(bus);
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModCommonConfig.SPEC, "pyrros-common.toml");
     }
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MODID)

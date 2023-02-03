@@ -4,13 +4,13 @@ license="GNU GPLv3"
 
 [[mods]]
 modId="pyrros"
-version="${file.jarVersion}" #mandatory
+version="${file.jarVersion}"
 displayName="Pyrros"
 logoFile="pyrros.png"
 authors="tetrago"
 description='''
-Pyrros, in flames.
-'''
+Pyrros, in flames.'''
+
 [[dependencies.pyrros]]
     modId="forge"
     mandatory=true
