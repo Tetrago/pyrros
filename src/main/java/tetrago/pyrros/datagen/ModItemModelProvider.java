@@ -18,7 +18,16 @@ public class ModItemModelProvider extends ItemModelProvider
     @Override
     protected void registerModels()
     {
+        simpleBlockItem(ModItems.ARC_FURNACE_CONTROLLER);
+        simpleBlockItem(ModItems.ENERGY_PORT);
+        simpleBlockItem(ModItems.ITEM_PORT);
         simpleBlockItem(ModItems.MACHINE_FRAME);
+        simpleBlockItem(ModItems.ENCASED_MACHINE_FRAME);
+        simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);
+        simpleBlockItem(ModItems.STEEL_BLOCK);
+
+        simpleItem(ModItems.STEEL_INGOT);
+        simpleItem(ModItems.STEEL_NUGGET);
     }
 
     private void simpleBlockItem(final RegistryObject<Item> item)

@@ -9,7 +9,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import tetrago.pyrros.common.block.ModBlocks;
+import tetrago.pyrros.common.blockentity.ModBlockEntities;
+import tetrago.pyrros.common.container.ModContainers;
 import tetrago.pyrros.common.item.ModItems;
+import tetrago.pyrros.common.recipe.ModRecipeSerializers;
 
 @Mod(Pyrros.MODID)
 public class Pyrros
@@ -22,7 +25,10 @@ public class Pyrros
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModBlocks.BLOCKS.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
+        ModContainers.CONTAINERS.register(bus);
         ModItems.ITEMS.register(bus);
+        ModRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
     }
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MODID)

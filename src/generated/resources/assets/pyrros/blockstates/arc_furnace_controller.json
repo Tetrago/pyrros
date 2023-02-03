@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "constructed=false,direction=down": {
+      "model": "pyrros:block/arc_furnace_controller",
+      "y": 90
+    },
+    "constructed=true,direction=down": {
+      "model": "pyrros:block/arc_furnace_controller_constructed",
+      "y": 90
+    },
+    "constructed=false,direction=up": {
+      "model": "pyrros:block/arc_furnace_controller",
+      "y": 90
+    },
+    "constructed=true,direction=up": {
+      "model": "pyrros:block/arc_furnace_controller_constructed",
+      "y": 90
+    },
+    "constructed=false,direction=north": {
+      "model": "pyrros:block/arc_furnace_controller"
+    },
+    "constructed=true,direction=north": {
+      "model": "pyrros:block/arc_furnace_controller_constructed"
+    },
+    "constructed=false,direction=south": {
+      "model": "pyrros:block/arc_furnace_controller",
+      "y": 180
+    },
+    "constructed=true,direction=south": {
+      "model": "pyrros:block/arc_furnace_controller_constructed",
+      "y": 180
+    },
+    "constructed=false,direction=west": {
+      "model": "pyrros:block/arc_furnace_controller",
+      "y": 270
+    },
+    "constructed=true,direction=west": {
+      "model": "pyrros:block/arc_furnace_controller_constructed",
+      "y": 270
+    },
+    "constructed=false,direction=east": {
+      "model": "pyrros:block/arc_furnace_controller",
+      "y": 90
+    },
+    "constructed=true,direction=east": {
+      "model": "pyrros:block/arc_furnace_controller_constructed",
+      "y": 90
+    }
+  }
+}

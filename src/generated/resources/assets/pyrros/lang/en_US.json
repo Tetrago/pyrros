@@ -1,4 +1,13 @@
 {
+  "block.pyrros.arc_furnace_controller": "Arc Furnace Controller",
+  "block.pyrros.encased_machine_frame": "Encased Machine Frame",
+  "block.pyrros.energy_port": "Energy Port",
+  "block.pyrros.item_port": "Item Port",
   "block.pyrros.machine_frame": "Machine Frame",
-  "itemGroup.pyrros": "Pyrros"
+  "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
+  "block.pyrros.steel_block": "Block of Steel",
+  "item.pyrros.steel_ingot": "Steel Ingot",
+  "item.pyrros.steel_nugget": "Steel Nugget",
+  "itemGroup.pyrros": "Pyrros",
+  "screen.pyrros.arc_furnace_controller": "Arc Furnace Controller"
 }

@@ -10,7 +10,13 @@ public class ModBlockLoot extends BlockLoot
     @Override
     protected void addTables()
     {
+        dropSelf(ModBlocks.ARC_FURNACE_CONTROLLER.get());
+        dropSelf(ModBlocks.ENERGY_PORT.get());
+        dropSelf(ModBlocks.ITEM_PORT.get());
         dropSelf(ModBlocks.MACHINE_FRAME.get());
+        dropSelf(ModBlocks.ENCASED_MACHINE_FRAME.get());
+        dropSelf(ModBlocks.REINFORCED_MACHINE_FRAME.get());
+        dropSelf(ModBlocks.STEEL_BLOCK.get());
     }
 
     @Override

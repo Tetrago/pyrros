@@ -1,0 +1,9 @@
+{
+  "type": "pyrros:arc_furnace",
+  "ingredient": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": {
+    "item": "pyrros:steel_ingot"
+  }
+}
