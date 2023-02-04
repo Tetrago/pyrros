@@ -1,7 +1,6 @@
 package tetrago.pyrros.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -18,13 +17,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
-import tetrago.pyrros.common.blockentity.ArcFurnaceControllerBlockEntity;
+import tetrago.pyrros.common.blockentity.ArcFurnaceBlockEntity;
 import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.util.BlockEntityUtil;
 
-public class ArcFurnaceControllerBlock extends MultiblockBlock
+public class ArcFurnaceBlock extends MultiblockBlock
 {
-    public ArcFurnaceControllerBlock()
+    public ArcFurnaceBlock()
     {
         super(Properties.of(Material.METAL).strength(1.5f, 6).lightLevel(state ->
                 state.getValue(MultiblockBlock.CONSTRUCTED) ? 2 : 0));
@@ -61,14 +60,14 @@ public class ArcFurnaceControllerBlock extends MultiblockBlock
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
-        return new ArcFurnaceControllerBlockEntity(pPos, pState);
+        return new ArcFurnaceBlockEntity(pPos, pState);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
     {
-        return BlockEntityUtil.tickerOf(pBlockEntityType, ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceControllerBlockEntity::tick);
+        return BlockEntityUtil.tickerOf(pBlockEntityType, ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceBlockEntity::tick);
     }
 
     @Override

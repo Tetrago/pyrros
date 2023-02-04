@@ -34,6 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleItem(ModItems.RAW_BROOKITE);
         simpleItem(ModItems.TITANIUM_INGOT);
         simpleItem(ModItems.TITANIUM_NUGGET);
+        simpleItem(ModItems.SLAG);
     }
 
     private void simpleBlockItem(final RegistryObject<Item> item)

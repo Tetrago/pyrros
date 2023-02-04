@@ -9,7 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import tetrago.pyrros.Pyrros;
-import tetrago.pyrros.client.screen.ArcFurnaceControllerScreen;
+import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.container.ModContainers;
 
@@ -22,7 +22,7 @@ public class ClientEventBusSubscriber
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MACHINE_FRAME.get(), RenderType.cutout());
 
-            MenuScreens.register(ModContainers.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceControllerScreen::new);
+            MenuScreens.register(ModContainers.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceScreen::new);
         });
     }
 }

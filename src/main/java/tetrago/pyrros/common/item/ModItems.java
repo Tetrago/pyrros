@@ -40,4 +40,5 @@ public class ModItems
     public static final RegistryObject<Item> RAW_BROOKITE = ITEMS.register("raw_brookite", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> TITANIUM_NUGGET = ITEMS.register("titanium_nugget", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> SLAG = ITEMS.register("slag", () -> new Item(PROPERTIES));
 }
