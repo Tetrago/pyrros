@@ -17,6 +17,13 @@ public class ModConfiguredFeatures
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.BROOKITE_ORE.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_BROOKITE_ORE.get().defaultBlockState()));
 
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_CRYOLITE_ORE = List.of(
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.CRYOLITE_ORE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_CRYOLITE_ORE.get().defaultBlockState()));
+
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> BROOKITE_ORE = FeatureUtils.register("brookite_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_BROOKITE_ORE, ModCommonConfig.BRROKITE_ORE_VEIN_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_BROOKITE_ORE, ModCommonConfig.BROOKITE_ORE_VEIN_SIZE.get()));
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> CRYOLITE_ORE = FeatureUtils.register("cryolite_ore",
+            Feature.ORE, new OreConfiguration(OVERWORLD_CRYOLITE_ORE, ModCommonConfig.CRYOLITE_ORE_VEIN_SIZE.get()));
 }

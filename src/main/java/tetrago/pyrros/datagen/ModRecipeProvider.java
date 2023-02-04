@@ -1,8 +1,11 @@
 package tetrago.pyrros.datagen;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
@@ -22,6 +25,8 @@ public class ModRecipeProvider extends RecipeProvider
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> builder)
     {
+        ore(builder, ImmutableList.of(ModBlocks.CRYOLITE_ORE.get(), ModBlocks.DEEPSLATE_CRYOLITE_ORE.get(), ModItems.RAW_CRYOLITE.get()), ModItems.ALUMINUM_INGOT.get());
+
         ShapedRecipeBuilder.shaped(ModBlocks.MACHINE_FRAME.get(), 4)
                 .define('X', Tags.Items.INGOTS_IRON)
                 .pattern("X X")
@@ -47,6 +52,20 @@ public class ModRecipeProvider extends RecipeProvider
 
         material(builder, "steel", ModItems.STEEL_NUGGET.get(), ModItems.STEEL_INGOT.get(), ModBlocks.STEEL_BLOCK.get());
         material(builder, "titanium", ModItems.TITANIUM_NUGGET.get(), ModItems.TITANIUM_INGOT.get(), ModBlocks.TITANIUM_BLOCK.get());
+        material(builder, "aluminum", ModItems.ALUMINUM_NUGGET.get(), ModItems.ALUMINUM_INGOT.get(), ModBlocks.ALUMINUM_BLOCK.get());
+    }
+
+    private void ore(Consumer<FinishedRecipe> builder, ImmutableList<ItemLike> smeltables, Item item)
+    {
+        smeltables.forEach(i -> {
+            SimpleCookingRecipeBuilder.smelting(Ingredient.of(i), item, 0.7f, 200)
+                    .unlockedBy(getHasName(i), has(i))
+                    .save(builder, i.asItem().getRegistryName().getPath() + "_smelting");
+
+            SimpleCookingRecipeBuilder.blasting(Ingredient.of(i), item, 0.7f, 100)
+                    .unlockedBy(getHasName(i), has(i))
+                    .save(builder, i.asItem().getRegistryName().getPath() + "_blasting");
+        });
     }
 
     private void material(Consumer<FinishedRecipe> builder, String name, ItemLike nugget, ItemLike ingot, ItemLike block)

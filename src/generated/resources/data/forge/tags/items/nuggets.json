@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "pyrros:steel_nugget",
-    "pyrros:titanium_nugget"
+    "pyrros:titanium_nugget",
+    "pyrros:aluminum_nugget"
   ]
 }

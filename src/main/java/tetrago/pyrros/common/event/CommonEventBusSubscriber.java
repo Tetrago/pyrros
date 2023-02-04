@@ -38,9 +38,7 @@ public class CommonEventBusSubscriber
     {
         List<Holder<PlacedFeature>> base = event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
-        if(ModCommonConfig.BROOKITE_ORE_ENABLED.get())
-        {
-            base.add(ModPlacedFeatures.BROOKITE_ORE_PLACED);
-        }
+        if(ModCommonConfig.BROOKITE_ORE_ENABLED.get()) base.add(ModPlacedFeatures.BROOKITE_ORE_PLACED);
+        if(ModCommonConfig.CRYOLITE_ORE_ENABLED.get()) base.add(ModPlacedFeatures.CRYOLITE_ORE_PLACED);
     }
 }

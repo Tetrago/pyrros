@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:deepslate_cryolite_ore_blasting"
+    ]
+  },
+  "criteria": {
+    "has_deepslate_cryolite_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pyrros:deepslate_cryolite_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:deepslate_cryolite_ore_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_cryolite_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

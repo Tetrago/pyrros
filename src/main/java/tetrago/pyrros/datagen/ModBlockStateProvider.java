@@ -41,8 +41,11 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
         simpleBlock(ModBlocks.TITANIUM_BLOCK.get());
+        simpleBlock(ModBlocks.ALUMINUM_BLOCK.get());
         simpleBlock(ModBlocks.BROOKITE_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE.get());
+        simpleBlock(ModBlocks.CRYOLITE_ORE.get());
+        simpleBlock(ModBlocks.DEEPSLATE_CRYOLITE_ORE.get());
         coilBlock(ModBlocks.COPPER_COIL.get());
         coilBlock(ModBlocks.GOLD_COIL.get());
     }

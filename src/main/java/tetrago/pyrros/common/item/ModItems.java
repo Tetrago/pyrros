@@ -25,8 +25,11 @@ public class ModItems
     public static final RegistryObject<Item> REINFORCED_MACHINE_FRAME = fromBlock(ModBlocks.REINFORCED_MACHINE_FRAME);
     public static final RegistryObject<Item> STEEL_BLOCK = fromBlock(ModBlocks.STEEL_BLOCK);
     public static final RegistryObject<Item> TITANIUM_BLOCK = fromBlock(ModBlocks.TITANIUM_BLOCK);
+    public static final RegistryObject<Item> ALUMINUM_BLOCK = fromBlock(ModBlocks.ALUMINUM_BLOCK);
     public static final RegistryObject<Item> BROOKITE_ORE = fromBlock(ModBlocks.BROOKITE_ORE);
     public static final RegistryObject<Item> DEEPSLATE_BROOKITE_ORE = fromBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE);
+    public static final RegistryObject<Item> CRYOLITE_ORE = fromBlock(ModBlocks.CRYOLITE_ORE);
+    public static final RegistryObject<Item> DEEPSLATE_CRYOLITE_ORE = fromBlock(ModBlocks.DEEPSLATE_CRYOLITE_ORE);
     public static final RegistryObject<Item> COPPER_COIL = fromCoilBlock(ModBlocks.COPPER_COIL);
     public static final RegistryObject<Item> GOLD_COIL = fromCoilBlock(ModBlocks.GOLD_COIL);
 
@@ -45,7 +48,10 @@ public class ModItems
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> RAW_BROOKITE = ITEMS.register("raw_brookite", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> RAW_CRYOLITE = ITEMS.register("raw_cryolite", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> TITANIUM_INGOT = ITEMS.register("titanium_ingot", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> TITANIUM_NUGGET = ITEMS.register("titanium_nugget", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> ALUMINUM_INGOT = ITEMS.register("aluminum_ingot", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> ALUMINUM_NUGGET = ITEMS.register("aluminum_nugget", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> SLAG = ITEMS.register("slag", () -> new Item(PROPERTIES));
 }

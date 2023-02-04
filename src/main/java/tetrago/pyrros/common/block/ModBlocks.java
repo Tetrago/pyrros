@@ -21,8 +21,11 @@ public class ModBlocks
     public static final RegistryObject<Block> REINFORCED_MACHINE_FRAME = BLOCKS.register("reinforced_machine_frame", () -> new MultiblockComponentBlock(BlockBehaviour.Properties.copy(ENCASED_MACHINE_FRAME.get())));
     public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> ALUMINUM_BLOCK = BLOCKS.register("aluminum_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> BROOKITE_ORE = BLOCKS.register("brookite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
     public static final RegistryObject<Block> DEEPSLATE_BROOKITE_ORE = BLOCKS.register("deepslate_brookite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
+    public static final RegistryObject<Block> CRYOLITE_ORE = BLOCKS.register("cryolite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
+    public static final RegistryObject<Block> DEEPSLATE_CRYOLITE_ORE = BLOCKS.register("deepslate_cryolite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
     public static final RegistryObject<Block> COPPER_COIL = BLOCKS.register("copper_coil", () -> new CoilBlock(100));
     public static final RegistryObject<Block> GOLD_COIL = BLOCKS.register("gold_coil", () -> new CoilBlock(200));
 }

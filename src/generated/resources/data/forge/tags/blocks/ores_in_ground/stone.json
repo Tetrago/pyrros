@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pyrros:brookite_ore"
+    "pyrros:brookite_ore",
+    "pyrros:cryolite_ore"
   ]
 }

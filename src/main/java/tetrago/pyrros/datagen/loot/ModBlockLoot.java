@@ -13,6 +13,8 @@ public class ModBlockLoot extends BlockLoot
     {
         add(ModBlocks.BROOKITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_BROOKITE.get()));
         add(ModBlocks.DEEPSLATE_BROOKITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_BROOKITE.get()));
+        add(ModBlocks.CRYOLITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_CRYOLITE.get()));
+        add(ModBlocks.DEEPSLATE_CRYOLITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_CRYOLITE.get()));
 
         dropSelf(ModBlocks.ARC_FURNACE.get());
         dropSelf(ModBlocks.ENERGY_PORT.get());
@@ -22,6 +24,7 @@ public class ModBlockLoot extends BlockLoot
         dropSelf(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         dropSelf(ModBlocks.STEEL_BLOCK.get());
         dropSelf(ModBlocks.TITANIUM_BLOCK.get());
+        dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
         dropSelf(ModBlocks.COPPER_COIL.get());
         dropSelf(ModBlocks.GOLD_COIL.get());
     }

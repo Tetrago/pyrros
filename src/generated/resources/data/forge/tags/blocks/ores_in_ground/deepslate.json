@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "pyrros:deepslate_brookite_ore"
+    "pyrros:deepslate_brookite_ore",
+    "pyrros:deepslate_cryolite_ore"
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "pyrros:deepslate_cryolite_ore"
+  },
+  "result": "pyrros:aluminum_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}

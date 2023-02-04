@@ -26,16 +26,22 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);
         simpleBlockItem(ModItems.STEEL_BLOCK);
         simpleBlockItem(ModItems.TITANIUM_BLOCK);
+        simpleBlockItem(ModItems.ALUMINUM_BLOCK);
         simpleBlockItem(ModItems.BROOKITE_ORE);
         simpleBlockItem(ModItems.DEEPSLATE_BROOKITE_ORE);
+        simpleBlockItem(ModItems.CRYOLITE_ORE);
+        simpleBlockItem(ModItems.DEEPSLATE_CRYOLITE_ORE);
         simpleBlockItem(ModItems.COPPER_COIL);
         simpleBlockItem(ModItems.GOLD_COIL);
 
         simpleItem(ModItems.STEEL_INGOT);
         simpleItem(ModItems.STEEL_NUGGET);
         simpleItem(ModItems.RAW_BROOKITE);
+        simpleItem(ModItems.RAW_CRYOLITE);
         simpleItem(ModItems.TITANIUM_INGOT);
         simpleItem(ModItems.TITANIUM_NUGGET);
+        simpleItem(ModItems.ALUMINUM_INGOT);
+        simpleItem(ModItems.ALUMINUM_NUGGET);
         simpleItem(ModItems.SLAG);
     }
 

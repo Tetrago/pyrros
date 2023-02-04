@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:raw_cryolite_blasting"
+    ]
+  },
+  "criteria": {
+    "has_raw_cryolite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pyrros:raw_cryolite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:raw_cryolite_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_cryolite",
+      "has_the_recipe"
+    ]
+  ]
+}

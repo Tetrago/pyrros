@@ -18,17 +18,22 @@ public class ModItemTagsProvider extends ItemTagsProvider
     // --- Blocks ------------------------------------------------------------------------------------------------------
 
     public static final TagKey<Item> ORES_TITANIUM = ItemTags.create(new ResourceLocation("forge", "ores/titanium"));
+    public static final TagKey<Item> ORES_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "ores/aluminum"));
     public static final TagKey<Item> STORAGE_BLOCKS_STEEL = ItemTags.create(new ResourceLocation("forge", "storage_blocks/steel"));
-    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/aluminum"));
     public static final TagKey<Item> COIL = ItemTags.create(Pyrros.loc("coil"));
 
     // --- Items -------------------------------------------------------------------------------------------------------
 
     public static final TagKey<Item> RAW_MATERIALS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "raw_materials/titanium"));
+    public static final TagKey<Item> RAW_MATERIALS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "raw_materials/aluminum"));
     public static final TagKey<Item> INGOTS_STEEL = ItemTags.create(new ResourceLocation("forge", "ingots/steel"));
-    public static final TagKey<Item> INGOTS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "ingots/titanium"));
     public static final TagKey<Item> NUGGETS_STEEL = ItemTags.create(new ResourceLocation("forge", "nuggets/steel"));
+    public static final TagKey<Item> INGOTS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "ingots/titanium"));
     public static final TagKey<Item> NUGGETS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "nuggets/titanium"));
+    public static final TagKey<Item> INGOTS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "ingots/aluminum"));
+    public static final TagKey<Item> NUGGETS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "nuggets/aluminum"));
     public static final TagKey<Item> SLAG = ItemTags.create(new ResourceLocation("forge", "slag"));
 
     public ModItemTagsProvider(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, @Nullable ExistingFileHelper existingFileHelper)
@@ -42,17 +47,32 @@ public class ModItemTagsProvider extends ItemTagsProvider
         // --- Blocks --------------------------------------------------------------------------------------------------
 
         tag(Tags.Items.ORES_IN_GROUND_STONE)
-                .add(ModItems.BROOKITE_ORE.get());
+                .add(ModItems.BROOKITE_ORE.get())
+                .add(ModItems.CRYOLITE_ORE.get());
 
         tag(Tags.Items.ORES_IN_GROUND_DEEPSLATE)
-                .add(ModItems.DEEPSLATE_BROOKITE_ORE.get());
+                .add(ModItems.DEEPSLATE_BROOKITE_ORE.get())
+                .add(ModItems.DEEPSLATE_CRYOLITE_ORE.get());
 
         tag(Tags.Items.ORES)
                 .add(ModItems.BROOKITE_ORE.get())
-                .add(ModItems.DEEPSLATE_BROOKITE_ORE.get());
+                .add(ModItems.DEEPSLATE_BROOKITE_ORE.get())
+                .add(ModItems.CRYOLITE_ORE.get())
+                .add(ModItems.DEEPSLATE_CRYOLITE_ORE.get());
         tag(ORES_TITANIUM)
                 .add(ModItems.BROOKITE_ORE.get())
                 .add(ModItems.DEEPSLATE_BROOKITE_ORE.get());
+        tag(ORES_ALUMINUM)
+                .add(ModItems.CRYOLITE_ORE.get())
+                .add(ModItems.DEEPSLATE_CRYOLITE_ORE.get());
+
+        tag(Tags.Items.STORAGE_BLOCKS)
+                .add(ModItems.STEEL_BLOCK.get())
+                .add(ModItems.TITANIUM_BLOCK.get())
+                .add(ModItems.ALUMINUM_BLOCK.get());
+        tag(STORAGE_BLOCKS_STEEL).add(ModItems.STEEL_BLOCK.get());
+        tag(STORAGE_BLOCKS_TITANIUM).add(ModItems.TITANIUM_BLOCK.get());
+        tag(STORAGE_BLOCKS_ALUMINUM).add(ModItems.ALUMINUM_BLOCK.get());
 
         tag(COIL)
                 .add(ModItems.COPPER_COIL.get())
@@ -61,26 +81,26 @@ public class ModItemTagsProvider extends ItemTagsProvider
         // --- Items ---------------------------------------------------------------------------------------------------
 
         tag(Tags.Items.RAW_MATERIALS)
-                .add(ModItems.RAW_BROOKITE.get());
+                .add(ModItems.RAW_BROOKITE.get())
+                .add(ModItems.RAW_CRYOLITE.get());
         tag(RAW_MATERIALS_TITANIUM).add(ModItems.RAW_BROOKITE.get());
+        tag(RAW_MATERIALS_ALUMINUM).add(ModItems.RAW_CRYOLITE.get());
 
         tag(Tags.Items.INGOTS)
                 .add(ModItems.STEEL_INGOT.get())
-                .add(ModItems.TITANIUM_INGOT.get());
+                .add(ModItems.TITANIUM_INGOT.get())
+                .add(ModItems.ALUMINUM_INGOT.get());
         tag(INGOTS_STEEL).add(ModItems.STEEL_INGOT.get());
         tag(INGOTS_TITANIUM).add(ModItems.TITANIUM_INGOT.get());
+        tag(INGOTS_ALUMINUM).add(ModItems.ALUMINUM_INGOT.get());
 
         tag(Tags.Items.NUGGETS)
                 .add(ModItems.STEEL_NUGGET.get())
-                .add(ModItems.TITANIUM_NUGGET.get());
+                .add(ModItems.TITANIUM_NUGGET.get())
+                .add(ModItems.ALUMINUM_NUGGET.get());
         tag(NUGGETS_STEEL).add(ModItems.STEEL_NUGGET.get());
         tag(NUGGETS_TITANIUM).add(ModItems.TITANIUM_NUGGET.get());
-
-        tag(Tags.Items.STORAGE_BLOCKS)
-                .add(ModItems.STEEL_BLOCK.get())
-                .add(ModItems.TITANIUM_BLOCK.get());
-        tag(STORAGE_BLOCKS_STEEL).add(ModItems.STEEL_BLOCK.get());
-        tag(STORAGE_BLOCKS_TITANIUM).add(ModItems.TITANIUM_BLOCK.get());
+        tag(NUGGETS_ALUMINUM).add(ModItems.ALUMINUM_NUGGET.get());
 
         tag(SLAG).add(ModItems.SLAG.get());
     }
