@@ -40,6 +40,10 @@ import java.util.Random;
 
 public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
+    public static final int ENERGY_COST = 700;
+    public static final int TIME = 150;
+    public static final double SLAG_CHANCE = 0.2;
+
     private final ModEnergyStorage mEnergyStorage = new ModEnergyStorage(50000, 1000)
     {
         @Override
@@ -60,7 +64,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     private final ContainerData mData;
     private int mProgress = 0;
-    private int mMaxProgress = 150;
+    private int mMaxProgress = TIME;
 
     public ArcFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
@@ -104,7 +108,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
             ++blockEntity.mProgress;
             setChanged(level, pos, state);
 
-            blockEntity.mEnergyStorage.extractEnergy(700 / blockEntity.mMaxProgress, false);
+            blockEntity.mEnergyStorage.extractEnergy(ENERGY_COST / blockEntity.mMaxProgress, false);
 
             if(blockEntity.mProgress > blockEntity.mMaxProgress)
             {
@@ -128,7 +132,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
             blockEntity.mItemStackHandler.setStackInSlot(1, new ItemStack(r.getResultItem().getItem(), blockEntity.mItemStackHandler.getStackInSlot(1).getCount() + r.getResultItem().getCount()));
 
             ItemStack stack = blockEntity.mItemStackHandler.getStackInSlot(2);
-            if((stack.isEmpty() || stack.getCount() + 1 <= stack.getMaxStackSize()) && new Random().nextDouble() <= 0.2)
+            if((stack.isEmpty() || stack.getCount() + 1 <= stack.getMaxStackSize()) && new Random().nextDouble() <= SLAG_CHANCE)
             {
                 blockEntity.mItemStackHandler.setStackInSlot(2, new ItemStack(ModItems.SLAG.get(), stack.getCount() + 1));
             }
@@ -153,7 +157,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     private static boolean hasMinimumEnergy(ArcFurnaceBlockEntity blockEntity)
     {
-        return blockEntity.mEnergyStorage.getEnergyStored() > 800;
+        return blockEntity.mEnergyStorage.getEnergyStored() > ENERGY_COST;
     }
 
     @Override

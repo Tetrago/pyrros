@@ -3,6 +3,7 @@ package tetrago.pyrros.integration.jei;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import tetrago.pyrros.Pyrros;
+import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 
@@ -43,5 +45,11 @@ public class ModJeiPlugin implements IModPlugin
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration)
     {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ARC_FURNACE.get()), ARC_FURNACE);
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration)
+    {
+        registration.addRecipeClickArea(ArcFurnaceScreen.class, 66, 31, 26, 23, ARC_FURNACE);
     }
 }
