@@ -14,7 +14,7 @@ public class ModBlockLoot extends BlockLoot
         add(ModBlocks.BROOKITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_BROOKITE.get()));
         add(ModBlocks.DEEPSLATE_BROOKITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_BROOKITE.get()));
 
-        dropSelf(ModBlocks.ARC_FURNACE_CONTROLLER.get());
+        dropSelf(ModBlocks.ARC_FURNACE.get());
         dropSelf(ModBlocks.ENERGY_PORT.get());
         dropSelf(ModBlocks.ITEM_PORT.get());
         dropSelf(ModBlocks.MACHINE_FRAME.get());

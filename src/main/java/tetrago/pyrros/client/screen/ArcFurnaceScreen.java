@@ -14,9 +14,8 @@ import java.util.Optional;
 
 public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContainer>
 {
-    public static final String UNLOCALIZED_NAME = Pyrros.modid("screen.{}.arc_furnace");
-
-    private static final ResourceLocation TEXTURE = Pyrros.loc("textures/gui/arc_furnace.png");
+    public static final String TITLE = Pyrros.modid("screen.{}.arc_furnace");
+    public static final ResourceLocation BACKGROUND = Pyrros.loc("textures/gui/arc_furnace.png");
 
     private EnergyWidget mEnergyWidget;
 
@@ -71,7 +70,7 @@ public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContaine
     @Override
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY)
     {
-        RenderSystem.setShaderTexture(0, TEXTURE);
+        RenderSystem.setShaderTexture(0, BACKGROUND);
 
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;

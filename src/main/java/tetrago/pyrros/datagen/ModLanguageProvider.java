@@ -18,13 +18,13 @@ public class ModLanguageProvider extends LanguageProvider
     @Override
     protected void addTranslations()
     {
-        add(ArcFurnaceScreen.UNLOCALIZED_NAME, "Arc Furnace");
+        add(ArcFurnaceScreen.TITLE, "Arc Furnace");
 
         add(ModWailaPlugin.TOOLTIP_CONSTRUCTED, "Multiblock");
 
         add(Pyrros.modid("itemGroup.{}"), "Pyrros");
 
-        add(ModBlocks.ARC_FURNACE_CONTROLLER.get(), "Arc Furnace");
+        add(ModBlocks.ARC_FURNACE.get(), "Arc Furnace");
         add(ModBlocks.ENERGY_PORT.get(), "Energy Port");
         add(ModBlocks.ITEM_PORT.get(), "Item Port");
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
