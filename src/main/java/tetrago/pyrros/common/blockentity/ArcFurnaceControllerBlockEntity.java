@@ -30,11 +30,13 @@ import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.ArcFurnaceControllerContainer;
+import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
@@ -125,6 +127,12 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
             blockEntity.mItemStackHandler.extractItem(0, 1, false);
             blockEntity.mItemStackHandler.setStackInSlot(1, new ItemStack(r.getResultItem().getItem(), blockEntity.mItemStackHandler.getStackInSlot(1).getCount() + r.getResultItem().getCount()));
 
+            ItemStack stack = blockEntity.mItemStackHandler.getStackInSlot(2);
+            if((stack.isEmpty() || stack.getCount() + 1 <= stack.getMaxStackSize()) && new Random().nextDouble() <= 0.2)
+            {
+                blockEntity.mItemStackHandler.setStackInSlot(2, new ItemStack(ModItems.SLAG.get(), stack.getCount() + 1));
+            }
+
             blockEntity.mProgress = 0;
         });
     }
@@ -140,7 +148,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     private static boolean canInsertIntoOutput(SimpleContainer inventory, ItemStack result)
     {
         final ItemStack stack = inventory.getItem(1);
-        return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() < stack.getMaxStackSize());
+        return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() <= stack.getMaxStackSize());
     }
 
     private static boolean hasMinimumEnergy(ArcFurnaceControllerBlockEntity blockEntity)

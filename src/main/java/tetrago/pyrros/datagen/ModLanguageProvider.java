@@ -37,5 +37,6 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModItems.RAW_BROOKITE.get(), "Raw Brookite");
         add(ModItems.TITANIUM_INGOT.get(), "Titanium Ingot");
         add(ModItems.TITANIUM_NUGGET.get(), "Titanium Nugget");
+        add(ModItems.SLAG.get(), "Slag");
     }
 }
