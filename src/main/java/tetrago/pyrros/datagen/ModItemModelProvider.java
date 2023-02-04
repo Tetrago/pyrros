@@ -28,6 +28,8 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleBlockItem(ModItems.TITANIUM_BLOCK);
         simpleBlockItem(ModItems.BROOKITE_ORE);
         simpleBlockItem(ModItems.DEEPSLATE_BROOKITE_ORE);
+        simpleBlockItem(ModItems.COPPER_COIL);
+        simpleBlockItem(ModItems.GOLD_COIL);
 
         simpleItem(ModItems.STEEL_INGOT);
         simpleItem(ModItems.STEEL_NUGGET);

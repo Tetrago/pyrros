@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "pyrros:block/copper_coil_side",
+    "top": "pyrros:block/copper_coil_top"
+  }
+}

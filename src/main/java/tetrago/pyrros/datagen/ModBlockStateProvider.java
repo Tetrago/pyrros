@@ -1,5 +1,6 @@
 package tetrago.pyrros.datagen;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,6 +12,7 @@ import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.block.MultiblockBlock;
+import tetrago.pyrros.common.block.OmnidirectionalBlock;
 
 import java.util.function.Function;
 
@@ -41,6 +43,8 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.TITANIUM_BLOCK.get());
         simpleBlock(ModBlocks.BROOKITE_ORE.get());
         simpleBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE.get());
+        coilBlock(ModBlocks.COPPER_COIL.get());
+        coilBlock(ModBlocks.GOLD_COIL.get());
     }
 
     private void flatDirectionalBlock(Block block, Function<BlockState, ModelFile> function)
@@ -49,5 +53,24 @@ public class ModBlockStateProvider extends BlockStateProvider
                 ConfiguredModel.builder().modelFile(function.apply(state))
                         .rotationY((int)(state.getValue(FlatDirectionalBlock.DIRECTION).toYRot() + 180) % 360)
                         .build());
+    }
+
+    private void coilBlock(Block block)
+    {
+        omnidirectionalBlock(block, state -> {
+            String path = block.getRegistryName().getPath();
+            return models().cubeTop(path, modLoc("block/" + path + "_side"), modLoc("block/" + path + "_top"));
+        });
+    }
+
+    private void omnidirectionalBlock(Block block, Function<BlockState, ModelFile> function)
+    {
+        getVariantBuilder(block).forAllStates(state -> {
+            Direction dir = state.getValue(OmnidirectionalBlock.DIRECTION);
+            return ConfiguredModel.builder().modelFile(function.apply(state))
+                    .rotationX((int)(dir.getRotation().toXYZDegrees().x() + 360) % 360)
+                    .rotationY((int)(dir.toYRot() + 180) % 360)
+                    .build();
+        });
     }
 }

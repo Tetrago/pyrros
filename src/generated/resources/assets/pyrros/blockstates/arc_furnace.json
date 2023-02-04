@@ -1,48 +1,48 @@
 {
   "variants": {
-    "constructed=false,direction=down": {
+    "constructed=false,flat_directional=down": {
       "model": "pyrros:block/arc_furnace",
       "y": 90
     },
-    "constructed=true,direction=down": {
+    "constructed=true,flat_directional=down": {
       "model": "pyrros:block/arc_furnace_constructed",
       "y": 90
     },
-    "constructed=false,direction=up": {
+    "constructed=false,flat_directional=up": {
       "model": "pyrros:block/arc_furnace",
       "y": 90
     },
-    "constructed=true,direction=up": {
+    "constructed=true,flat_directional=up": {
       "model": "pyrros:block/arc_furnace_constructed",
       "y": 90
     },
-    "constructed=false,direction=north": {
+    "constructed=false,flat_directional=north": {
       "model": "pyrros:block/arc_furnace"
     },
-    "constructed=true,direction=north": {
+    "constructed=true,flat_directional=north": {
       "model": "pyrros:block/arc_furnace_constructed"
     },
-    "constructed=false,direction=south": {
+    "constructed=false,flat_directional=south": {
       "model": "pyrros:block/arc_furnace",
       "y": 180
     },
-    "constructed=true,direction=south": {
+    "constructed=true,flat_directional=south": {
       "model": "pyrros:block/arc_furnace_constructed",
       "y": 180
     },
-    "constructed=false,direction=west": {
+    "constructed=false,flat_directional=west": {
       "model": "pyrros:block/arc_furnace",
       "y": 270
     },
-    "constructed=true,direction=west": {
+    "constructed=true,flat_directional=west": {
       "model": "pyrros:block/arc_furnace_constructed",
       "y": 270
     },
-    "constructed=false,direction=east": {
+    "constructed=false,flat_directional=east": {
       "model": "pyrros:block/arc_furnace",
       "y": 90
     },
-    "constructed=true,direction=east": {
+    "constructed=true,flat_directional=east": {
       "model": "pyrros:block/arc_furnace_constructed",
       "y": 90
     }

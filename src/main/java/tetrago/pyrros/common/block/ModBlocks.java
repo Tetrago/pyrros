@@ -23,5 +23,6 @@ public class ModBlocks
     public static final RegistryObject<Block> TITANIUM_BLOCK = BLOCKS.register("titanium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistryObject<Block> BROOKITE_ORE = BLOCKS.register("brookite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
     public static final RegistryObject<Block> DEEPSLATE_BROOKITE_ORE = BLOCKS.register("deepslate_brookite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
-
+    public static final RegistryObject<Block> COPPER_COIL = BLOCKS.register("copper_coil", () -> new CoilBlock(100));
+    public static final RegistryObject<Block> GOLD_COIL = BLOCKS.register("gold_coil", () -> new CoilBlock(200));
 }

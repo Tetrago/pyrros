@@ -15,15 +15,20 @@ import tetrago.pyrros.common.item.ModItems;
 
 public class ModItemTagsProvider extends ItemTagsProvider
 {
+    // --- Blocks ------------------------------------------------------------------------------------------------------
+
     public static final TagKey<Item> ORES_TITANIUM = ItemTags.create(new ResourceLocation("forge", "ores/titanium"));
+    public static final TagKey<Item> STORAGE_BLOCKS_STEEL = ItemTags.create(new ResourceLocation("forge", "storage_blocks/steel"));
+    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
+    public static final TagKey<Item> COIL = ItemTags.create(Pyrros.loc("coil"));
+
+    // --- Items -------------------------------------------------------------------------------------------------------
 
     public static final TagKey<Item> RAW_MATERIALS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "raw_materials/titanium"));
     public static final TagKey<Item> INGOTS_STEEL = ItemTags.create(new ResourceLocation("forge", "ingots/steel"));
     public static final TagKey<Item> INGOTS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "ingots/titanium"));
     public static final TagKey<Item> NUGGETS_STEEL = ItemTags.create(new ResourceLocation("forge", "nuggets/steel"));
     public static final TagKey<Item> NUGGETS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "nuggets/titanium"));
-    public static final TagKey<Item> STORAGE_BLOCKS_STEEL = ItemTags.create(new ResourceLocation("forge", "storage_blocks/steel"));
-    public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
     public static final TagKey<Item> SLAG = ItemTags.create(new ResourceLocation("forge", "slag"));
 
     public ModItemTagsProvider(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, @Nullable ExistingFileHelper existingFileHelper)
@@ -34,6 +39,8 @@ public class ModItemTagsProvider extends ItemTagsProvider
     @Override
     protected void addTags()
     {
+        // --- Blocks --------------------------------------------------------------------------------------------------
+
         tag(Tags.Items.ORES_IN_GROUND_STONE)
                 .add(ModItems.BROOKITE_ORE.get());
 
@@ -46,6 +53,12 @@ public class ModItemTagsProvider extends ItemTagsProvider
         tag(ORES_TITANIUM)
                 .add(ModItems.BROOKITE_ORE.get())
                 .add(ModItems.DEEPSLATE_BROOKITE_ORE.get());
+
+        tag(COIL)
+                .add(ModItems.COPPER_COIL.get())
+                .add(ModItems.GOLD_COIL.get());
+
+        // --- Items ---------------------------------------------------------------------------------------------------
 
         tag(Tags.Items.RAW_MATERIALS)
                 .add(ModItems.RAW_BROOKITE.get());

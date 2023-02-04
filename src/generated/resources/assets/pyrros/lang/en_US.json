@@ -1,9 +1,11 @@
 {
   "block.pyrros.arc_furnace": "Arc Furnace",
   "block.pyrros.brookite_ore": "Brookite Ore",
+  "block.pyrros.copper_coil": "Copper Coil",
   "block.pyrros.deepslate_brookite_ore": "Deepslate Brookite Ore",
   "block.pyrros.encased_machine_frame": "Encased Machine Frame",
   "block.pyrros.energy_port": "Energy Port",
+  "block.pyrros.gold_coil": "Gold Coil",
   "block.pyrros.item_port": "Item Port",
   "block.pyrros.machine_frame": "Machine Frame",
   "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
@@ -17,5 +19,6 @@
   "item.pyrros.titanium_nugget": "Titanium Nugget",
   "itemGroup.pyrros": "Pyrros",
   "screen.pyrros.arc_furnace": "Arc Furnace",
+  "text.pyrros.coil_strength": "Coil Strength",
   "text.pyrros.tooltip_constructed": "Multiblock"
 }

@@ -27,10 +27,17 @@ public class ModItems
     public static final RegistryObject<Item> TITANIUM_BLOCK = fromBlock(ModBlocks.TITANIUM_BLOCK);
     public static final RegistryObject<Item> BROOKITE_ORE = fromBlock(ModBlocks.BROOKITE_ORE);
     public static final RegistryObject<Item> DEEPSLATE_BROOKITE_ORE = fromBlock(ModBlocks.DEEPSLATE_BROOKITE_ORE);
+    public static final RegistryObject<Item> COPPER_COIL = fromCoilBlock(ModBlocks.COPPER_COIL);
+    public static final RegistryObject<Item> GOLD_COIL = fromCoilBlock(ModBlocks.GOLD_COIL);
 
     private static RegistryObject<Item> fromBlock(RegistryObject<Block> block)
     {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), PROPERTIES));
+    }
+
+    private static RegistryObject<Item> fromCoilBlock(RegistryObject<Block> block)
+    {
+        return ITEMS.register(block.getId().getPath(), () -> new CoilBlockItem(block.get(), PROPERTIES));
     }
 
     // --- Items -------------------------------------------------------------------------------------------------------
