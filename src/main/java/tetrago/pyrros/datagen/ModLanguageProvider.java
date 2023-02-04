@@ -32,6 +32,7 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
         add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
         add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");
+        add(ModBlocks.ROLLER.get(), "Roller");
         add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
         add(ModBlocks.TITANIUM_BLOCK.get(), "Block of Titanium");
         add(ModBlocks.ALUMINUM_BLOCK.get(), "Block of Aluminum");

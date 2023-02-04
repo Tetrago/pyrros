@@ -39,6 +39,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.MACHINE_FRAME.get());
         simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
+        omnidirectionalBlock(ModBlocks.ROLLER.get(), models().getExistingFile(Pyrros.loc("block/roller")));
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
         simpleBlock(ModBlocks.TITANIUM_BLOCK.get());
         simpleBlock(ModBlocks.ALUMINUM_BLOCK.get());
@@ -64,6 +65,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             String path = block.getRegistryName().getPath();
             return models().cubeTop(path, modLoc("block/" + path + "_side"), modLoc("block/" + path + "_top"));
         });
+    }
+
+    private void omnidirectionalBlock(Block block, ModelFile model)
+    {
+        omnidirectionalBlock(block, state -> model);
     }
 
     private void omnidirectionalBlock(Block block, Function<BlockState, ModelFile> function)
