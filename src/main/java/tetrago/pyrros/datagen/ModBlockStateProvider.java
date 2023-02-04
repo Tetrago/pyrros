@@ -24,12 +24,12 @@ public class ModBlockStateProvider extends BlockStateProvider
     @Override
     protected void registerStatesAndModels()
     {
-        flatDirectionalBlock(ModBlocks.ARC_FURNACE_CONTROLLER.get(), state -> {
+        flatDirectionalBlock(ModBlocks.ARC_FURNACE.get(), state -> {
             boolean constructed = state.getValue(MultiblockBlock.CONSTRUCTED);
-            return models().orientable(ModBlocks.ARC_FURNACE_CONTROLLER.getId().getPath() + (constructed ? "_constructed" : ""),
-                    modLoc("block/arc_furnace_controller_side"),
-                    modLoc("block/arc_furnace_controller_front" + (constructed ? "_constructed" : "")),
-                    modLoc("block/arc_furnace_controller_top"));
+            return models().orientable(ModBlocks.ARC_FURNACE.getId().getPath() + (constructed ? "_constructed" : ""),
+                    modLoc("block/arc_furnace_side"),
+                    modLoc("block/arc_furnace_front" + (constructed ? "_constructed" : "")),
+                    modLoc("block/arc_furnace_top"));
         });
 
         simpleBlock(ModBlocks.ENERGY_PORT.get());

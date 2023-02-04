@@ -28,6 +28,11 @@ public class ArcFurnaceRecipe implements Recipe<Container>
         mResult = result;
     }
 
+    public Ingredient getIngredient()
+    {
+        return mIngredient;
+    }
+
     @Override
     public boolean matches(Container pContainer, Level pLevel)
     {

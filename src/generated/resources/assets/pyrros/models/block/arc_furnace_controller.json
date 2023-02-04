@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "side": "pyrros:block/arc_furnace_controller_side",
-    "front": "pyrros:block/arc_furnace_controller_front",
-    "top": "pyrros:block/arc_furnace_controller_top"
-  }
-}

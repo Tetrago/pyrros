@@ -221,7 +221,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
     @Override
     public Component getDisplayName()
     {
-        return new TranslatableComponent(ArcFurnaceScreen.UNLOCALIZED_NAME);
+        return new TranslatableComponent(ArcFurnaceScreen.TITLE);
     }
 
     @Nullable
