@@ -2,6 +2,7 @@ package tetrago.pyrros.common.blockentity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.common.block.MultiblockBlock;
 
-public abstract class MultiblockBlockEntity extends BlockEntity implements IMultiblockComponent
+public abstract class MultiblockBlockEntity extends MultiblockProviderBlockEntity
 {
     public MultiblockBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState)
     {

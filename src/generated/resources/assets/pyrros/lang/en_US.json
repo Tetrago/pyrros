@@ -1,5 +1,5 @@
 {
-  "block.pyrros.arc_furnace_controller": "Arc Furnace Controller",
+  "block.pyrros.arc_furnace_controller": "Arc Furnace",
   "block.pyrros.brookite_ore": "Brookite Ore",
   "block.pyrros.deepslate_brookite_ore": "Deepslate Brookite Ore",
   "block.pyrros.encased_machine_frame": "Encased Machine Frame",
@@ -16,5 +16,6 @@
   "item.pyrros.titanium_ingot": "Titanium Ingot",
   "item.pyrros.titanium_nugget": "Titanium Nugget",
   "itemGroup.pyrros": "Pyrros",
-  "screen.pyrros.arc_furnace_controller": "Arc Furnace Controller"
+  "screen.pyrros.arc_furnace": "Arc Furnace",
+  "text.pyrros.tooltip_constructed": "Multiblock"
 }

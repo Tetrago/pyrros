@@ -25,11 +25,11 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import tetrago.pyrros.client.screen.ArcFurnaceControllerScreen;
+import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
-import tetrago.pyrros.common.container.ArcFurnaceControllerContainer;
+import tetrago.pyrros.common.container.ArcFurnaceContainer;
 import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
 
-public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity implements MenuProvider
+public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
     private final ModEnergyStorage mEnergyStorage = new ModEnergyStorage(50000, 1000)
     {
@@ -62,7 +62,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     private int mProgress = 0;
     private int mMaxProgress = 150;
 
-    public ArcFurnaceControllerBlockEntity(BlockPos pPos, BlockState pBlockState)
+    public ArcFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), pPos, pBlockState);
 
@@ -95,7 +95,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         };
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, ArcFurnaceControllerBlockEntity blockEntity)
+    public static void tick(Level level, BlockPos pos, BlockState state, ArcFurnaceBlockEntity blockEntity)
     {
         if(level.isClientSide()) return;
 
@@ -118,7 +118,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         }
     }
 
-    private static void craft(ArcFurnaceControllerBlockEntity blockEntity)
+    private static void craft(ArcFurnaceBlockEntity blockEntity)
     {
         SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
         Optional<ArcFurnaceRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(ArcFurnaceRecipe.TYPE, container, blockEntity.level);
@@ -137,7 +137,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         });
     }
 
-    private static boolean hasRecipe(ArcFurnaceControllerBlockEntity blockEntity)
+    private static boolean hasRecipe(ArcFurnaceBlockEntity blockEntity)
     {
         SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
         Optional<ArcFurnaceRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(ArcFurnaceRecipe.TYPE, container, blockEntity.level);
@@ -151,7 +151,7 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
         return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() <= stack.getMaxStackSize());
     }
 
-    private static boolean hasMinimumEnergy(ArcFurnaceControllerBlockEntity blockEntity)
+    private static boolean hasMinimumEnergy(ArcFurnaceBlockEntity blockEntity)
     {
         return blockEntity.mEnergyStorage.getEnergyStored() > 800;
     }
@@ -195,8 +195,8 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     {
         super.load(pTag);
 
-        mEnergyStorage.deserializeNBT(pTag.get("energy"));
-        mItemStackHandler.deserializeNBT(pTag.getCompound("inventory"));
+        mEnergyStorage.deserializeNBT(pTag.get("arc_furnace.energy"));
+        mItemStackHandler.deserializeNBT(pTag.getCompound("arc_furnace.inventory"));
     }
 
     @Override
@@ -204,8 +204,8 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     {
         super.saveAdditional(pTag);
 
-        pTag.put("energy", mEnergyStorage.serializeNBT());
-        pTag.put("inventory", mItemStackHandler.serializeNBT());
+        pTag.put("arc_furnace.energy", mEnergyStorage.serializeNBT());
+        pTag.put("arc_furnace.inventory", mItemStackHandler.serializeNBT());
     }
 
     @Override
@@ -221,14 +221,14 @@ public class ArcFurnaceControllerBlockEntity extends MultiblockBlockEntity imple
     @Override
     public Component getDisplayName()
     {
-        return new TranslatableComponent(ArcFurnaceControllerScreen.UNLOCALIZED_NAME);
+        return new TranslatableComponent(ArcFurnaceScreen.UNLOCALIZED_NAME);
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer)
     {
-        return new ArcFurnaceControllerContainer(pContainerId, pPlayerInventory, this, mData);
+        return new ArcFurnaceContainer(pContainerId, pPlayerInventory, this, mData);
     }
 
     @Override

@@ -8,19 +8,19 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.client.screen.widget.EnergyWidget;
-import tetrago.pyrros.common.container.ArcFurnaceControllerContainer;
+import tetrago.pyrros.common.container.ArcFurnaceContainer;
 
 import java.util.Optional;
 
-public class ArcFurnaceControllerScreen extends AbstractContainerScreen<ArcFurnaceControllerContainer>
+public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContainer>
 {
-    public static final String UNLOCALIZED_NAME = Pyrros.modid("screen.{}.arc_furnace_controller");
+    public static final String UNLOCALIZED_NAME = Pyrros.modid("screen.{}.arc_furnace");
 
-    private static final ResourceLocation TEXTURE = Pyrros.loc("textures/gui/arc_furnace_controller.png");
+    private static final ResourceLocation TEXTURE = Pyrros.loc("textures/gui/arc_furnace.png");
 
     private EnergyWidget mEnergyWidget;
 
-    public ArcFurnaceControllerScreen(ArcFurnaceControllerContainer pMenu, Inventory pPlayerInventory, Component pTitle)
+    public ArcFurnaceScreen(ArcFurnaceContainer pMenu, Inventory pPlayerInventory, Component pTitle)
     {
         super(pMenu, pPlayerInventory, pTitle);
     }

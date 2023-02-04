@@ -13,7 +13,7 @@ public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Pyrros.MODID);
 
-    public static final RegistryObject<Block> ARC_FURNACE_CONTROLLER = BLOCKS.register("arc_furnace_controller", ArcFurnaceControllerBlock::new);
+    public static final RegistryObject<Block> ARC_FURNACE_CONTROLLER = BLOCKS.register("arc_furnace_controller", ArcFurnaceBlock::new);
     public static final RegistryObject<Block> ENERGY_PORT = BLOCKS.register("energy_port", EnergyPortBlock::new);
     public static final RegistryObject<Block> ITEM_PORT = BLOCKS.register("item_port", ItemPortBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = BLOCKS.register("machine_frame", MachineFrameBlock::new);

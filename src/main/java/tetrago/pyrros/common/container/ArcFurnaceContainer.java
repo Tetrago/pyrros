@@ -15,16 +15,16 @@ import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.data.EnergyData;
 import tetrago.pyrros.common.container.slot.OutputSlot;
 
-public class ArcFurnaceControllerContainer extends ContainerMenu
+public class ArcFurnaceContainer extends ContainerMenu
 {
     private final ContainerData mData;
 
-    public ArcFurnaceControllerContainer(int pContainerId, Inventory inventory, FriendlyByteBuf data)
+    public ArcFurnaceContainer(int pContainerId, Inventory inventory, FriendlyByteBuf data)
     {
         this(pContainerId, inventory, inventory.player.level.getBlockEntity(data.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public ArcFurnaceControllerContainer(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data)
+    public ArcFurnaceContainer(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data)
     {
         super(ModContainers.ARC_FURNACE_CONTROLLER.get(), pContainerId, blockEntity.getBlockPos(), inv);
 
@@ -48,7 +48,7 @@ public class ArcFurnaceControllerContainer extends ContainerMenu
             @Override
             protected int getEnergyStored()
             {
-                return ArcFurnaceControllerContainer.this.getEnergyStored();
+                return ArcFurnaceContainer.this.getEnergyStored();
             }
 
             @Override

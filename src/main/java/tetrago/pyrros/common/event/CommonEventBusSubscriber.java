@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.common.block.MultiblockBlock;
-import tetrago.pyrros.common.blockentity.IMultiblockComponent;
+import tetrago.pyrros.common.blockentity.MultiblockProviderBlockEntity;
 import tetrago.pyrros.common.config.ModCommonConfig;
 import tetrago.pyrros.common.world.feature.ModPlacedFeatures;
 
@@ -24,12 +24,12 @@ public class CommonEventBusSubscriber
     {
         if(event.getWorld().isClientSide()) return;
 
-        if(event.getWorld().getBlockEntity(event.getPos()) instanceof IMultiblockComponent component && component.isConstructed())
+        if(event.getWorld().getBlockEntity(event.getPos()) instanceof MultiblockProviderBlockEntity provider && provider.isConstructed())
         {
             event.setCanceled(true);
 
-            MultiblockBlock block = (MultiblockBlock)event.getWorld().getBlockState(component.getMultiblockPos()).getBlock();
-            block.deconstruct((ServerLevel)event.getWorld(), component.getMultiblockPos());
+            MultiblockBlock block = (MultiblockBlock)event.getWorld().getBlockState(provider.getMultiblockPos()).getBlock();
+            block.deconstruct((ServerLevel)event.getWorld(), provider.getMultiblockPos());
         }
     }
 
