@@ -33,7 +33,7 @@ public class ArcFurnaceBlock extends MultiblockBlock
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return super.getStateForPlacement(pContext).setValue(FlatDirectionalBlock.DIRECTION, pContext.getNearestLookingDirection().getOpposite());
+        return super.getStateForPlacement(pContext).setValue(FlatDirectionalBlock.DIRECTION, pContext.getHorizontalDirection().getOpposite());
     }
 
     @Override
