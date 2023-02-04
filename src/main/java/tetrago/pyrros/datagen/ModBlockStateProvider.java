@@ -2,6 +2,7 @@ package tetrago.pyrros.datagen;
 
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -40,6 +41,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         omnidirectionalBlock(ModBlocks.ROLLER.get(), models().getExistingFile(Pyrros.loc("block/roller")));
+        motorBlock(ModBlocks.BASIC_MOTOR.get(), modLoc("block/basic_motor"));
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
         simpleBlock(ModBlocks.TITANIUM_BLOCK.get());
         simpleBlock(ModBlocks.ALUMINUM_BLOCK.get());
@@ -65,6 +67,11 @@ public class ModBlockStateProvider extends BlockStateProvider
             String path = block.getRegistryName().getPath();
             return models().cubeTop(path, modLoc("block/" + path + "_side"), modLoc("block/" + path + "_top"));
         });
+    }
+
+    private void motorBlock(Block block, ResourceLocation texture)
+    {
+        omnidirectionalBlock(block, state -> models().withExistingParent(block.getRegistryName().getPath(), modLoc("block/motor")).texture("texture", texture));
     }
 
     private void omnidirectionalBlock(Block block, ModelFile model)

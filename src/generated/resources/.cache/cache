@@ -1,5 +1,6 @@
 15bf4e2921f41daef638e0f31ef3aa0f2d340423 assets/pyrros/blockstates/aluminum_block.json
 0de54f0334501ebee1ba6cf739cfaf63df2e341c assets/pyrros/blockstates/arc_furnace.json
+8c78086571364ec7b55c75764ac243ec57684810 assets/pyrros/blockstates/basic_motor.json
 9dc1daf0211ce06befd5f066b0dd17bc48c4564f assets/pyrros/blockstates/brookite_ore.json
 4216b4251860bb9795d69ffdc32d6642651cca7a assets/pyrros/blockstates/copper_coil.json
 9f31993b26c061d38d1a08cdf64b864fec79d80f assets/pyrros/blockstates/cryolite_ore.json
@@ -14,10 +15,11 @@ eb1529a764852dff8cf7b4cf7bb80865cf56d895 assets/pyrros/blockstates/machine_frame
 ed31629a4977f9e4dcef7b0e001b34b3dfe309ad assets/pyrros/blockstates/roller.json
 40d32d70ef3a7326ce6f3df62702bf4e9c4b7d1e assets/pyrros/blockstates/steel_block.json
 513a25ec3e9a4c2445e1693dacb10334bc5ad173 assets/pyrros/blockstates/titanium_block.json
-2e0885a25b681a01fd20200d87fb61ecb3819ce3 assets/pyrros/lang/en_US.json
+595389bc5a5e557b32d67e499cb77b097a2db9b9 assets/pyrros/lang/en_US.json
 f05b57d127a7ef159729af36e9434e8c56ebe17c assets/pyrros/models/block/aluminum_block.json
 86e03cdf7b4099d0648db5414ffd11e84537694b assets/pyrros/models/block/arc_furnace.json
 00f9ac0924fe997946dfa308b08d4b51cfc3c9df assets/pyrros/models/block/arc_furnace_constructed.json
+622bab5f1ddf9612c9c8de916d20566e7b9eedda assets/pyrros/models/block/basic_motor.json
 21061d06af750b5d4b0a0bce411386ed70a63ecc assets/pyrros/models/block/brookite_ore.json
 ac0e8b3b638c18876245cd42d1283494787629b9 assets/pyrros/models/block/copper_coil.json
 90c565f777c7ff3ce65a21cee40c810a4b2ff353 assets/pyrros/models/block/cryolite_ore.json
@@ -35,6 +37,7 @@ e91b07581377b2916e7e6a985419f59005fef7e4 assets/pyrros/models/block/deepslate_br
 d92edb9865c54a620100650d9fca3f8a02e07cbc assets/pyrros/models/item/aluminum_ingot.json
 9645f92938c7f21eb5cfbc33d233c899073e1746 assets/pyrros/models/item/aluminum_nugget.json
 f73593392efb37cb557d4d57653155243d18c400 assets/pyrros/models/item/arc_furnace.json
+70cb5722344b3acc7790986cb3a3d5efe1bb07cb assets/pyrros/models/item/basic_motor.json
 459d6497b983ca572cffe95c9054fadf2067bfe5 assets/pyrros/models/item/brookite_ore.json
 d4ac8a57c2420d30a263e8be6f94e776571d93d8 assets/pyrros/models/item/copper_coil.json
 71db0b2c6305bdc6af82fc5b93b80dd44d7aa746 assets/pyrros/models/item/cryolite_ore.json
@@ -117,6 +120,7 @@ e04c575b888fd9f36a01e321c31e40b1e970fea8 data/pyrros/advancements/recipes/pyrros
 37e1ed3342fb95144b72ffe4109828ea708b85f0 data/pyrros/advancements/recipes/pyrros/titanium_nugget.json
 1bd1f33259e7c6be4bfeb7d2738e994abdd5e7aa data/pyrros/loot_tables/blocks/aluminum_block.json
 e406ce4d02041c4164482cd507bcab8e96c69d4d data/pyrros/loot_tables/blocks/arc_furnace.json
+a0cf5ed8f2bde50f27ebf5d8457b2191d443860b data/pyrros/loot_tables/blocks/basic_motor.json
 e2cb5aa2106669360017c0e40f8257c1bc3dddba data/pyrros/loot_tables/blocks/brookite_ore.json
 9de71361dce2f094cb184fc4086898992e8ebda3 data/pyrros/loot_tables/blocks/copper_coil.json
 663396f90cb83b0f72bdcfd5be0aa681d0e075f5 data/pyrros/loot_tables/blocks/cryolite_ore.json
@@ -147,4 +151,6 @@ b3a5983d51d8e3f5189842536553f150ded4d1dd data/pyrros/recipes/titanium_ingot_from
 ea2e5abff23aba9f153cab1ea39f08183b021644 data/pyrros/recipes/titanium_ingot_from_nuggets.json
 b44c5dcb8619f73bbbb99c9af434b26d34600609 data/pyrros/recipes/titanium_nugget.json
 9c366a274ce5087b02413001509eec709aee91fb data/pyrros/tags/blocks/coil.json
+1fe22e19dcb3e38a5910b72727adc849356985da data/pyrros/tags/blocks/motor.json
 9c366a274ce5087b02413001509eec709aee91fb data/pyrros/tags/items/coil.json
+1fe22e19dcb3e38a5910b72727adc849356985da data/pyrros/tags/items/motor.json

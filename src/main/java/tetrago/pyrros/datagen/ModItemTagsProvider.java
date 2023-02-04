@@ -23,6 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider
     public static final TagKey<Item> STORAGE_BLOCKS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
     public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/aluminum"));
     public static final TagKey<Item> COIL = ItemTags.create(Pyrros.loc("coil"));
+    public static final TagKey<Item> MOTOR = ItemTags.create(Pyrros.loc("motor"));
 
     // --- Items -------------------------------------------------------------------------------------------------------
 
@@ -77,6 +78,9 @@ public class ModItemTagsProvider extends ItemTagsProvider
         tag(COIL)
                 .add(ModItems.COPPER_COIL.get())
                 .add(ModItems.GOLD_COIL.get());
+
+        tag(MOTOR)
+                .add(ModItems.BASIC_MOTOR.get());
 
         // --- Items ---------------------------------------------------------------------------------------------------
 

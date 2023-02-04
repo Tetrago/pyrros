@@ -7,6 +7,7 @@ import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.item.CoilBlockItem;
 import tetrago.pyrros.common.item.ModItems;
+import tetrago.pyrros.common.item.MotorBlockItem;
 import tetrago.pyrros.integration.waila.ModWailaPlugin;
 
 public class ModLanguageProvider extends LanguageProvider
@@ -22,9 +23,12 @@ public class ModLanguageProvider extends LanguageProvider
         add(ArcFurnaceScreen.TITLE, "Arc Furnace");
 
         add(CoilBlockItem.TOOLTIP_COIL_STRENGTH, "Coil Strength");
+        add(MotorBlockItem.TOOLTIP_MOTOR_STRENGTH, "Motor Strength");
         add(ModWailaPlugin.TOOLTIP_CONSTRUCTED, "Multiblock");
 
         add(Pyrros.modid("itemGroup.{}"), "Pyrros");
+
+        // --- Blocks --------------------------------------------------------------------------------------------------
 
         add(ModBlocks.ARC_FURNACE.get(), "Arc Furnace");
         add(ModBlocks.ENERGY_PORT.get(), "Energy Port");
@@ -33,6 +37,7 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModBlocks.ENCASED_MACHINE_FRAME.get(), "Encased Machine Frame");
         add(ModBlocks.REINFORCED_MACHINE_FRAME.get(), "Reinforced Machine Frame");
         add(ModBlocks.ROLLER.get(), "Roller");
+        add(ModBlocks.BASIC_MOTOR.get(), "Basic Motor");
         add(ModBlocks.STEEL_BLOCK.get(), "Block of Steel");
         add(ModBlocks.TITANIUM_BLOCK.get(), "Block of Titanium");
         add(ModBlocks.ALUMINUM_BLOCK.get(), "Block of Aluminum");
@@ -42,6 +47,8 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModBlocks.DEEPSLATE_CRYOLITE_ORE.get(), "Deepslate Cryolite Ore");
         add(ModBlocks.COPPER_COIL.get(), "Copper Coil");
         add(ModBlocks.GOLD_COIL.get(), "Gold Coil");
+
+        // --- Items ---------------------------------------------------------------------------------------------------
 
         add(ModItems.STEEL_INGOT.get(), "Steel Ingot");
         add(ModItems.STEEL_NUGGET.get(), "Steel Nugget");

@@ -10,15 +10,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.Pyrros;
-import tetrago.pyrros.common.block.CoilBlock;
+import tetrago.pyrros.common.block.MotorBlock;
 
 import java.util.List;
 
-public class CoilBlockItem extends BlockItem
+public class MotorBlockItem extends BlockItem
 {
-    public static final String TOOLTIP_COIL_STRENGTH = Pyrros.modid("tooltip.{}.coil_strength");
+    public static final String TOOLTIP_MOTOR_STRENGTH = Pyrros.modid("tooltip.{}.motor_strength");
 
-    public CoilBlockItem(Block pBlock, Properties pProperties)
+    public MotorBlockItem(Block pBlock, Properties pProperties)
     {
         super(pBlock, pProperties);
     }
@@ -28,7 +28,7 @@ public class CoilBlockItem extends BlockItem
     {
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
-        CoilBlock block = (CoilBlock)getBlock();
-        pTooltip.add(new TranslatableComponent(TOOLTIP_COIL_STRENGTH).append(": " + block.getCoilStrength()).withStyle(ChatFormatting.GRAY));
+        MotorBlock block = (MotorBlock)getBlock();
+        pTooltip.add(new TranslatableComponent(TOOLTIP_MOTOR_STRENGTH).append(": " + block.getMotorStrength()).withStyle(ChatFormatting.GRAY));
     }
 }

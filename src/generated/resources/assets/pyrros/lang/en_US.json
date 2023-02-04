@@ -1,6 +1,7 @@
 {
   "block.pyrros.aluminum_block": "Block of Aluminum",
   "block.pyrros.arc_furnace": "Arc Furnace",
+  "block.pyrros.basic_motor": "Basic Motor",
   "block.pyrros.brookite_ore": "Brookite Ore",
   "block.pyrros.copper_coil": "Copper Coil",
   "block.pyrros.cryolite_ore": "Cryolite Ore",
@@ -26,6 +27,7 @@
   "item.pyrros.titanium_nugget": "Titanium Nugget",
   "itemGroup.pyrros": "Pyrros",
   "screen.pyrros.arc_furnace": "Arc Furnace",
-  "text.pyrros.coil_strength": "Coil Strength",
-  "text.pyrros.tooltip_constructed": "Multiblock"
+  "text.pyrros.tooltip_constructed": "Multiblock",
+  "tooltip.pyrros.coil_strength": "Coil Strength",
+  "tooltip.pyrros.motor_strength": "Motor Strength"
 }

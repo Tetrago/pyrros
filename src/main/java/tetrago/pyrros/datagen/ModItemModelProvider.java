@@ -25,6 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleBlockItem(ModItems.ENCASED_MACHINE_FRAME);
         simpleBlockItem(ModItems.REINFORCED_MACHINE_FRAME);
         simpleBlockItem(ModItems.ROLLER);
+        simpleBlockItem(ModItems.BASIC_MOTOR);
         simpleBlockItem(ModItems.STEEL_BLOCK);
         simpleBlockItem(ModItems.TITANIUM_BLOCK);
         simpleBlockItem(ModItems.ALUMINUM_BLOCK);
