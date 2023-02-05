@@ -7,13 +7,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.MinecraftForge;
 import tetrago.pyrros.common.blockentity.MultiblockBlockEntity;
 import tetrago.pyrros.common.blockentity.MultiblockComponentBlockEntity;
+import tetrago.pyrros.common.event.MultiblockConstructionEvent;
 import tetrago.pyrros.common.recipe.MultiblockRecipe;
 
 import java.util.Optional;
@@ -47,7 +50,14 @@ public abstract class MultiblockBlock extends Block implements EntityBlock
 
         if(!pLevel.isClientSide())
         {
-            onConstruct(pLevel, pPos, recipe.get());
+            MultiblockConstructionEvent event = new MultiblockConstructionEvent(pLevel, pPos, recipe.get(),
+                    recipe.get().findValidRotation(pLevel, pPos).orElseThrow(() -> new IllegalStateException("Invalid multiblock construction attempt")));
+
+            MinecraftForge.EVENT_BUS.post(event);
+            if(!event.isCanceled())
+            {
+                onConstruct(pLevel, pPos, recipe.get(), event.getRotation());
+            }
         }
 
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
@@ -64,15 +74,15 @@ public abstract class MultiblockBlock extends Block implements EntityBlock
         onDeconstruct(level, pos);
     }
 
-    protected void onConstruct(Level level, BlockPos pos, MultiblockRecipe recipe)
+    protected void onConstruct(Level level, BlockPos pos, MultiblockRecipe recipe, Rotation rotation)
     {
         level.setBlock(pos, level.getBlockState(pos).setValue(CONSTRUCTED, true), 2);
-        recipe.findValidRotation(level, pos).ifPresent(rotation -> recipe.getBlocksForRotation(level, pos, rotation).ifPresent(blocks -> blocks.forEach(blockPos -> {
+        recipe.getBlocksForRotation(level, pos, rotation).ifPresent(blocks -> blocks.forEach(blockPos -> {
             if(level.getBlockEntity(blockPos) instanceof MultiblockComponentBlockEntity child)
             {
                 child.parent(pos);
             }
-        })));
+        }));
 
         ((MultiblockBlockEntity)level.getBlockEntity(pos)).onConstruct();
     }
