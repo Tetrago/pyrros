@@ -41,6 +41,7 @@ public class ModBlockStateProvider extends BlockStateProvider
         simpleBlock(ModBlocks.ENCASED_MACHINE_FRAME.get());
         simpleBlock(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         omnidirectionalBlock(ModBlocks.ROLLER.get(), models().getExistingFile(Pyrros.loc("block/roller")));
+        omnidirectionalBlock(ModBlocks.BEARING.get(), models().getExistingFile(Pyrros.loc("block/bearing")));
         motorBlock(ModBlocks.BASIC_MOTOR.get(), modLoc("block/basic_motor"));
         simpleBlock(ModBlocks.STEEL_BLOCK.get());
         simpleBlock(ModBlocks.TITANIUM_BLOCK.get());

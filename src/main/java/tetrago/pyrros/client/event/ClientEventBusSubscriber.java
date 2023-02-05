@@ -21,6 +21,7 @@ public class ClientEventBusSubscriber
     {
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.MACHINE_FRAME.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEARING.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BASIC_MOTOR.get(), RenderType.cutout());
 
             MenuScreens.register(ModContainers.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceScreen::new);

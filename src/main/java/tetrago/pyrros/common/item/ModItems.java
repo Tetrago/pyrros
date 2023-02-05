@@ -24,6 +24,7 @@ public class ModItems
     public static final RegistryObject<Item> ENCASED_MACHINE_FRAME = fromBlock(ModBlocks.ENCASED_MACHINE_FRAME);
     public static final RegistryObject<Item> REINFORCED_MACHINE_FRAME = fromBlock(ModBlocks.REINFORCED_MACHINE_FRAME);
     public static final RegistryObject<Item> ROLLER = fromBlock(ModBlocks.ROLLER);
+    public static final RegistryObject<Item> BEARING = fromBlock(ModBlocks.BEARING);
     public static final RegistryObject<Item> BASIC_MOTOR = fromMotorBlock(ModBlocks.BASIC_MOTOR);
     public static final RegistryObject<Item> STEEL_BLOCK = fromBlock(ModBlocks.STEEL_BLOCK);
     public static final RegistryObject<Item> TITANIUM_BLOCK = fromBlock(ModBlocks.TITANIUM_BLOCK);

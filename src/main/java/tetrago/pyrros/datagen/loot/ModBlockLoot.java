@@ -23,6 +23,7 @@ public class ModBlockLoot extends BlockLoot
         dropSelf(ModBlocks.ENCASED_MACHINE_FRAME.get());
         dropSelf(ModBlocks.REINFORCED_MACHINE_FRAME.get());
         dropSelf(ModBlocks.ROLLER.get());
+        dropSelf(ModBlocks.BEARING.get());
         dropSelf(ModBlocks.BASIC_MOTOR.get());
         dropSelf(ModBlocks.STEEL_BLOCK.get());
         dropSelf(ModBlocks.TITANIUM_BLOCK.get());
