@@ -28,11 +28,13 @@ import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
+import tetrago.pyrros.common.capability.ItemStackProxy;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.ArcFurnaceContainer;
 import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
+import tetrago.pyrros.common.util.ItemStackUtil;
 
 import java.util.Map;
 import java.util.Optional;
@@ -129,12 +131,11 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
         recipe.ifPresent(r -> {
             blockEntity.mItemStackHandler.extractItem(0, 1, false);
-            blockEntity.mItemStackHandler.setStackInSlot(1, new ItemStack(r.getResultItem().getItem(), blockEntity.mItemStackHandler.getStackInSlot(1).getCount() + r.getResultItem().getCount()));
+            ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 1, r.getResultItem());
 
-            ItemStack stack = blockEntity.mItemStackHandler.getStackInSlot(2);
-            if((stack.isEmpty() || stack.getCount() + 1 <= stack.getMaxStackSize()) && new Random().nextDouble() <= SLAG_CHANCE)
+            if(new Random().nextDouble() <= SLAG_CHANCE)
             {
-                blockEntity.mItemStackHandler.setStackInSlot(2, new ItemStack(ModItems.SLAG.get(), stack.getCount() + 1));
+                ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 2, new ItemStack(ModItems.SLAG.get()));
             }
 
             blockEntity.mProgress = 0;
@@ -151,8 +152,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     private static boolean canInsertIntoOutput(SimpleContainer inventory, ItemStack result)
     {
-        final ItemStack stack = inventory.getItem(1);
-        return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() <= stack.getMaxStackSize());
+        return ItemStackUtil.canInsertIntoStack(inventory.getItem(1), result);
     }
 
     private static boolean hasMinimumEnergy(ArcFurnaceBlockEntity blockEntity)
