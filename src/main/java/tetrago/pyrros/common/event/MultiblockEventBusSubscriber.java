@@ -51,7 +51,13 @@ public class MultiblockEventBusSubscriber
             if(event.getBlockPositions().stream().map(event.getLevel()::getBlockState).filter(state -> state.hasProperty(OmnidirectionalBlock.DIRECTION))
                     .map(state -> state.getValue(OmnidirectionalBlock.DIRECTION)).map(Direction::getAxis).distinct().count() > 1)
             {
-                event.setCanceled(true);
+                //event.setCanceled(true);
+            }
+
+            // Make sure the RollingMill is not facing inward
+            if(event.getLevel().getBlockState(event.getMultiblockPos()).getValue(FlatDirectionalBlock.DIRECTION) == event.getRotation().rotate(Direction.SOUTH))
+            {
+                //event.setCanceled(true);
             }
         }
     }

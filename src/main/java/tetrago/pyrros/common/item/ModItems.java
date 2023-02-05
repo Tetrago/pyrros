@@ -17,7 +17,8 @@ public class ModItems
 
     // --- Blocks ------------------------------------------------------------------------------------------------------
 
-    public static final RegistryObject<Item> ARC_FURNACE_CONTROLLER = fromBlock(ModBlocks.ARC_FURNACE);
+    public static final RegistryObject<Item> ARC_FURNACE = fromBlock(ModBlocks.ARC_FURNACE);
+    public static final RegistryObject<Item> ROLLING_MILL = fromBlock(ModBlocks.ROLLING_MILL);
     public static final RegistryObject<Item> ENERGY_PORT = fromBlock(ModBlocks.ENERGY_PORT);
     public static final RegistryObject<Item> ITEM_PORT = fromBlock(ModBlocks.ITEM_PORT);
     public static final RegistryObject<Item> MACHINE_FRAME = fromBlock(ModBlocks.MACHINE_FRAME);

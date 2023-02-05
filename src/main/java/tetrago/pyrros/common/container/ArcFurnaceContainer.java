@@ -26,7 +26,7 @@ public class ArcFurnaceContainer extends ContainerMenu
 
     public ArcFurnaceContainer(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data)
     {
-        super(ModContainers.ARC_FURNACE_CONTROLLER.get(), pContainerId, blockEntity.getBlockPos(), inv);
+        super(ModContainers.ARC_FURNACE.get(), pContainerId, blockEntity.getBlockPos(), inv);
 
         mData = data;
 

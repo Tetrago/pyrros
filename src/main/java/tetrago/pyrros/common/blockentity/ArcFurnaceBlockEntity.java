@@ -68,7 +68,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     public ArcFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
-        super(ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), pPos, pBlockState);
+        super(ModBlockEntities.ARC_FURNACE.get(), pPos, pBlockState);
 
         mData = new ContainerData()
         {

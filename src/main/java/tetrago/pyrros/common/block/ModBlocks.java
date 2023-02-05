@@ -14,6 +14,7 @@ public class ModBlocks
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Pyrros.MODID);
 
     public static final RegistryObject<Block> ARC_FURNACE = BLOCKS.register("arc_furnace", ArcFurnaceBlock::new);
+    public static final RegistryObject<Block> ROLLING_MILL = BLOCKS.register("rolling_mill", RollingMillBlock::new);
     public static final RegistryObject<Block> ENERGY_PORT = BLOCKS.register("energy_port", EnergyPortBlock::new);
     public static final RegistryObject<Block> ITEM_PORT = BLOCKS.register("item_port", ItemPortBlock::new);
     public static final RegistryObject<Block> MACHINE_FRAME = BLOCKS.register("machine_frame", MachineFrameBlock::new);

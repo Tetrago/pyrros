@@ -35,6 +35,14 @@ public class ModBlockStateProvider extends BlockStateProvider
                     modLoc("block/arc_furnace_top"));
         });
 
+        flatDirectionalBlock(ModBlocks.ROLLING_MILL.get(), state -> {
+            boolean constructed = state.getValue(MultiblockBlock.CONSTRUCTED);
+            return models().orientable(ModBlocks.ROLLING_MILL.getId().getPath() + (constructed ? "_constructed" : ""),
+                    modLoc("block/rolling_mill_side"),
+                    modLoc("block/rolling_mill_front" + (constructed ? "_constructed" : "")),
+                    modLoc("block/rolling_mill_top"));
+        });
+
         simpleBlock(ModBlocks.ENERGY_PORT.get());
         simpleBlock(ModBlocks.ITEM_PORT.get());
         simpleBlock(ModBlocks.MACHINE_FRAME.get());

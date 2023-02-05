@@ -31,6 +31,7 @@ public class ModLanguageProvider extends LanguageProvider
         // --- Blocks --------------------------------------------------------------------------------------------------
 
         add(ModBlocks.ARC_FURNACE.get(), "Arc Furnace");
+        add(ModBlocks.ROLLING_MILL.get(), "Rolling Mill");
         add(ModBlocks.ENERGY_PORT.get(), "Energy Port");
         add(ModBlocks.ITEM_PORT.get(), "Item Port");
         add(ModBlocks.MACHINE_FRAME.get(), "Machine Frame");
