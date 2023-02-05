@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.client.screen.ArcFurnaceScreen;
+import tetrago.pyrros.client.screen.RollingMillScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.container.ModContainers;
 
@@ -25,6 +26,7 @@ public class ClientEventBusSubscriber
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.BASIC_MOTOR.get(), RenderType.cutout());
 
             MenuScreens.register(ModContainers.ARC_FURNACE.get(), ArcFurnaceScreen::new);
+            MenuScreens.register(ModContainers.ROLLING_MILL.get(), RollingMillScreen::new);
         });
     }
 }

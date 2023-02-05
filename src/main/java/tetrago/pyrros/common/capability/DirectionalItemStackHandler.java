@@ -2,13 +2,10 @@ package tetrago.pyrros.common.capability;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,10 +26,8 @@ public class DirectionalItemStackHandler
     }
 
     @NotNull
-    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side, Direction relativeTo)
+    public <T> LazyOptional<T> getCapability(@NotNull Direction side, Direction relativeTo)
     {
-        if(cap != CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return LazyOptional.empty();
-
         for(Rotation rotation : mItemHandlers.keySet())
         {
             if(side != rotation.rotate(relativeTo)) continue;

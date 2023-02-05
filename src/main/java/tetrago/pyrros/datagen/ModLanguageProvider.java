@@ -4,6 +4,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.client.screen.ArcFurnaceScreen;
+import tetrago.pyrros.client.screen.RollingMillScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.item.CoilBlockItem;
 import tetrago.pyrros.common.item.ModItems;
@@ -21,6 +22,7 @@ public class ModLanguageProvider extends LanguageProvider
     protected void addTranslations()
     {
         add(ArcFurnaceScreen.TITLE, "Arc Furnace");
+        add(RollingMillScreen.TITLE, "Rolling Mill");
 
         add(CoilBlockItem.TOOLTIP_COIL_STRENGTH, "Coil Strength");
         add(MotorBlockItem.TOOLTIP_MOTOR_STRENGTH, "Motor Strength");

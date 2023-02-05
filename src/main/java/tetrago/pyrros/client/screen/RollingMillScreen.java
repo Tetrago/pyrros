@@ -6,18 +6,18 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.client.screen.widget.EnergyWidget;
-import tetrago.pyrros.common.container.ArcFurnaceContainer;
+import tetrago.pyrros.common.container.RollingMillContainer;
 
 import java.util.Optional;
 
-public class ArcFurnaceScreen extends ContainerScreen<ArcFurnaceContainer>
+public class RollingMillScreen extends ContainerScreen<RollingMillContainer>
 {
-    public static final String TITLE = Pyrros.modid("screen.{}.arc_furnace");
-    public static final ResourceLocation BACKGROUND = Pyrros.loc("textures/gui/arc_furnace.png");
+    public static final String TITLE = Pyrros.modid("screen.{}.rolling_mill");
+    public static final ResourceLocation BACKGROUND = Pyrros.loc("textures/gui/rolling_mill.png");
 
     private EnergyWidget mEnergyWidget;
 
-    public ArcFurnaceScreen(ArcFurnaceContainer pMenu, Inventory pPlayerInventory, Component pTitle)
+    public RollingMillScreen(RollingMillContainer pMenu, Inventory pPlayerInventory, Component pTitle)
     {
         super(pMenu, pPlayerInventory, pTitle);
     }
@@ -60,10 +60,5 @@ public class ArcFurnaceScreen extends ContainerScreen<ArcFurnaceContainer>
         renderBackground(pPoseStack, BACKGROUND);
 
         mEnergyWidget.draw(pPoseStack, pPartialTick, pMouseX, pMouseY);
-
-        if(menu.isCrafting())
-        {
-            blit(pPoseStack, getX() + 68, getY() + 34, 176, 0, menu.getScaledProgress(), 16);
-        }
     }
 }

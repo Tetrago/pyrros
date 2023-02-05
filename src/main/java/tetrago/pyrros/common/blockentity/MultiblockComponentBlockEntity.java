@@ -55,7 +55,7 @@ public  class MultiblockComponentBlockEntity extends MultiblockProviderBlockEnti
 
     @NotNull
     @Override
-    public <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    public <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @NotNull Direction side)
     {
         if(!isConstructed()) return LazyOptional.empty();
         return ((MultiblockBlockEntity)level.getBlockEntity(getMultiblockPos())).getMultiblockCapability(cap, side);

@@ -19,7 +19,7 @@ public class EnergyPortBlockEntity extends MultiblockComponentBlockEntity
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side)
     {
-        if(cap == CapabilityEnergy.ENERGY)
+        if(side != null && cap == CapabilityEnergy.ENERGY)
         {
             return getMultiblockCapability(cap, side);
         }

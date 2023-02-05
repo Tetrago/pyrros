@@ -1,7 +1,11 @@
 package tetrago.pyrros.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
@@ -9,8 +13,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.common.blockentity.RollingMillBlockEntity;
+import tetrago.pyrros.common.util.BlockEntityUtil;
 
 public class RollingMillBlock extends MultiblockBlock
 {
@@ -51,5 +57,16 @@ public class RollingMillBlock extends MultiblockBlock
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
         return new RollingMillBlockEntity(pPos, pState);
+    }
+
+    @Override
+    protected InteractionResult useConstructed(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit)
+    {
+        if(!pLevel.isClientSide())
+        {
+            BlockEntityUtil.openGui(pLevel, pPos, pPlayer);
+        }
+
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 }

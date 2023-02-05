@@ -28,7 +28,6 @@ import org.jetbrains.annotations.Nullable;
 import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
-import tetrago.pyrros.common.capability.ItemStackProxy;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.ArcFurnaceContainer;
 import tetrago.pyrros.common.item.ModItems;
@@ -161,7 +160,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    public @NotNull <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @NotNull Direction side)
     {
         if(cap == CapabilityEnergy.ENERGY)
         {
@@ -169,7 +168,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         }
         else if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
         {
-            return mDirectionalItemStackHandler.getCapability(cap, side, level.getBlockState(getBlockPos()).getValue(FlatDirectionalBlock.DIRECTION));
+            return mDirectionalItemStackHandler.getCapability(side, getBlockState().getValue(FlatDirectionalBlock.DIRECTION));
         }
 
         return super.getMultiblockCapability(cap, side);
