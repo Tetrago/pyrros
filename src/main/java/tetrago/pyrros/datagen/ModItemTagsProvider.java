@@ -36,6 +36,8 @@ public class ModItemTagsProvider extends ItemTagsProvider
     public static final TagKey<Item> INGOTS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "ingots/aluminum"));
     public static final TagKey<Item> NUGGETS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "nuggets/aluminum"));
     public static final TagKey<Item> SLAG = ItemTags.create(new ResourceLocation("forge", "slag"));
+    public static final TagKey<Item> PLATES = ItemTags.create(new ResourceLocation("forge", "plates"));
+    public static final TagKey<Item> PLATES_IRON = ItemTags.create(new ResourceLocation("forge", "plates/iron"));
 
     public ModItemTagsProvider(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, @Nullable ExistingFileHelper existingFileHelper)
     {
@@ -107,5 +109,9 @@ public class ModItemTagsProvider extends ItemTagsProvider
         tag(NUGGETS_ALUMINUM).add(ModItems.ALUMINUM_NUGGET.get());
 
         tag(SLAG).add(ModItems.SLAG.get());
+
+        tag(PLATES)
+                .add(ModItems.IRON_PLATE.get());
+        tag(PLATES_IRON).add(ModItems.IRON_PLATE.get());
     }
 }

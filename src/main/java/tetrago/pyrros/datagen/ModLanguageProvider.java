@@ -63,5 +63,6 @@ public class ModLanguageProvider extends LanguageProvider
         add(ModItems.ALUMINUM_INGOT.get(), "Aluminum Ingot");
         add(ModItems.ALUMINUM_NUGGET.get(), "Aluminum Nugget");
         add(ModItems.SLAG.get(), "Slag");
+        add(ModItems.IRON_PLATE.get(), "Iron Plate");
     }
 }

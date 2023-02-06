@@ -17,7 +17,7 @@ ed31629a4977f9e4dcef7b0e001b34b3dfe309ad assets/pyrros/blockstates/roller.json
 d317a634bc550df50a3a8b870608c98c5bfd828f assets/pyrros/blockstates/rolling_mill.json
 40d32d70ef3a7326ce6f3df62702bf4e9c4b7d1e assets/pyrros/blockstates/steel_block.json
 513a25ec3e9a4c2445e1693dacb10334bc5ad173 assets/pyrros/blockstates/titanium_block.json
-2ee1814e304f609129adb8e3b204903dbd9867ba assets/pyrros/lang/en_US.json
+09e7e365bc10aff6a16baa6ca08aa3b7be42fd8c assets/pyrros/lang/en_US.json
 f05b57d127a7ef159729af36e9434e8c56ebe17c assets/pyrros/models/block/aluminum_block.json
 86e03cdf7b4099d0648db5414ffd11e84537694b assets/pyrros/models/block/arc_furnace.json
 00f9ac0924fe997946dfa308b08d4b51cfc3c9df assets/pyrros/models/block/arc_furnace_constructed.json
@@ -51,6 +51,7 @@ ee69b4b43aff30d955ec8145139615646568a528 assets/pyrros/models/item/deepslate_bro
 a39acd0ab288f0e1d0dd525670327c767a4b0c40 assets/pyrros/models/item/encased_machine_frame.json
 78598a6773a129754f29dffb3a5ef67c81d2e8a3 assets/pyrros/models/item/energy_port.json
 7c5fc99bd3ad3967f89a7fbd8eec8e6509a3769d assets/pyrros/models/item/gold_coil.json
+61cf5cfba6f3b992373ccfce938765b120909f58 assets/pyrros/models/item/iron_plate.json
 da35e888bb12c7211a5d6fab1289d36f75535211 assets/pyrros/models/item/item_port.json
 ea3ac49db5b9f7de39722ec69e4f43b22ac6f190 assets/pyrros/models/item/machine_frame.json
 4870762d2a0a75d0373609690bff5b3ec7cc7c42 assets/pyrros/models/item/raw_brookite.json
@@ -87,6 +88,8 @@ e4f59792ddbfb595817fec9e522bbf66ba640f6d data/forge/tags/items/ores.json
 d7006f4ec2ef3ca49c8b1f36ff0b54dcef238294 data/forge/tags/items/ores/titanium.json
 071bfc4f654a35c13e5e5afec0eb76a4cd05a68e data/forge/tags/items/ores_in_ground/deepslate.json
 ca37b23df2abcbe31c670aae62112495e6a778d5 data/forge/tags/items/ores_in_ground/stone.json
+7ea4be06413f2441904c9094807f0b8c871d35bb data/forge/tags/items/plates.json
+7ea4be06413f2441904c9094807f0b8c871d35bb data/forge/tags/items/plates/iron.json
 b6e33e013f814b90d237d42d3302856f33c4b09a data/forge/tags/items/raw_materials.json
 0b3343781f1c8c245f90c8276dfae4c2c7893e25 data/forge/tags/items/raw_materials/aluminum.json
 bc3929353394cedd6e647b3c7ba8287df220181d data/forge/tags/items/raw_materials/titanium.json
