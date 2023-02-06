@@ -36,7 +36,7 @@ public class RollingMillRecipe implements Recipe<Container>
     @Override
     public boolean matches(Container pContainer, Level pLevel)
     {
-        return false;
+        return mIngredient.test(pContainer.getItem(0));
     }
 
     @Override

@@ -11,6 +11,9 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -27,12 +30,18 @@ import tetrago.pyrros.common.block.FlatDirectionalBlock;
 import tetrago.pyrros.common.capability.DirectionalItemStackHandler;
 import tetrago.pyrros.common.capability.ModEnergyStorage;
 import tetrago.pyrros.common.container.RollingMillContainer;
+import tetrago.pyrros.common.recipe.RollingMillRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
+import tetrago.pyrros.common.util.ItemStackUtil;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class RollingMillBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
+    public static final int ENERGY_COST = 700;
+    public static final int CRAFT_TIME = 150;
+
     private final ModEnergyStorage mEnergyStorage = new ModEnergyStorage(50000, 1000)
     {
         @Override
@@ -50,9 +59,96 @@ public class RollingMillBlockEntity extends MultiblockBlockEntity implements Men
             Rotation.COUNTERCLOCKWISE_90, 1
     ));
 
+    private final ContainerData mData;
+    private int mProgress = 0;
+    private int mMaxProgress = CRAFT_TIME;
+
     public RollingMillBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(ModBlockEntities.ROLLING_MILL.get(), pPos, pBlockState);
+
+        mData = new ContainerData()
+        {
+            @Override
+            public int get(int pIndex)
+            {
+                return switch(pIndex) {
+                    default -> mProgress;
+                    case 1 -> mMaxProgress;
+                };
+            }
+
+            @Override
+            public void set(int pIndex, int pValue)
+            {
+                switch(pIndex)
+                {
+                default -> mProgress = pValue;
+                case 1 -> mMaxProgress = pIndex;
+                }
+            }
+
+            @Override
+            public int getCount()
+            {
+                return 2;
+            }
+        };
+    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, RollingMillBlockEntity blockEntity)
+    {
+        if(level.isClientSide()) return;
+
+        if(hasRecipe(blockEntity))
+        {
+            ++blockEntity.mProgress;
+            blockEntity.setChanged();
+
+            blockEntity.mEnergyStorage.extractEnergy(ENERGY_COST / blockEntity.mMaxProgress, false);
+
+            if(blockEntity.mProgress > blockEntity.mMaxProgress)
+            {
+                craft(blockEntity);
+            }
+        }
+        else if(blockEntity.mProgress > 0)
+        {
+            blockEntity.mProgress = 0;
+            blockEntity.setChanged();
+        }
+    }
+
+    private static void craft(RollingMillBlockEntity blockEntity)
+    {
+        SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
+        Optional<RollingMillRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(RollingMillRecipe.TYPE, container, blockEntity.level);
+
+        recipe.ifPresent(r -> {
+            blockEntity.mItemStackHandler.extractItem(0, 1, false);
+            ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 1, r.getResultItem());
+
+            blockEntity.mProgress = 0;
+            blockEntity.setChanged();
+        });
+    }
+
+    private static boolean hasRecipe(RollingMillBlockEntity blockEntity)
+    {
+        SimpleContainer container = BlockEntityUtil.offload(blockEntity.mItemStackHandler);
+        Optional<RollingMillRecipe> recipe = blockEntity.level.getRecipeManager().getRecipeFor(RollingMillRecipe.TYPE, container, blockEntity.level);
+
+        return recipe.isPresent() && canInsertIntoOutput(container, recipe.get().getResultItem()) && hasMinimumEnergy(blockEntity);
+    }
+
+    private static boolean canInsertIntoOutput(SimpleContainer container, ItemStack result)
+    {
+        return ItemStackUtil.canInsertIntoStack(container.getItem(1), result);
+    }
+
+    private static boolean hasMinimumEnergy(RollingMillBlockEntity blockEntity)
+    {
+        return blockEntity.mEnergyStorage.getEnergyStored() >= ENERGY_COST;
     }
 
     @Override
@@ -127,7 +223,7 @@ public class RollingMillBlockEntity extends MultiblockBlockEntity implements Men
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer)
     {
-        return new RollingMillContainer(pContainerId, pPlayerInventory, this);
+        return new RollingMillContainer(pContainerId, pPlayerInventory, this, mData);
     }
 
     @Override

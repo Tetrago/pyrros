@@ -42,7 +42,7 @@ import java.util.Random;
 public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
     public static final int ENERGY_COST = 700;
-    public static final int TIME = 150;
+    public static final int CRAFT_TIME = 150;
     public static final double SLAG_CHANCE = 0.2;
 
     private final ModEnergyStorage mEnergyStorage = new ModEnergyStorage(50000, 1000)
@@ -65,7 +65,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     private final ContainerData mData;
     private int mProgress = 0;
-    private int mMaxProgress = TIME;
+    private int mMaxProgress = CRAFT_TIME;
 
     public ArcFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
@@ -107,7 +107,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         if(hasRecipe(blockEntity))
         {
             ++blockEntity.mProgress;
-            setChanged(level, pos, state);
+            blockEntity.setChanged();
 
             blockEntity.mEnergyStorage.extractEnergy(ENERGY_COST / blockEntity.mMaxProgress, false);
 
@@ -119,7 +119,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         else if(blockEntity.mProgress > 0)
         {
             blockEntity.mProgress = 0;
-            setChanged(level, pos, state);
+            blockEntity.setChanged();
         }
     }
 
@@ -138,6 +138,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
             }
 
             blockEntity.mProgress = 0;
+            blockEntity.setChanged();
         });
     }
 
@@ -149,9 +150,9 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         return recipe.isPresent() && canInsertIntoOutput(container, recipe.get().getResultItem()) && hasMinimumEnergy(blockEntity);
     }
 
-    private static boolean canInsertIntoOutput(SimpleContainer inventory, ItemStack result)
+    private static boolean canInsertIntoOutput(SimpleContainer container, ItemStack result)
     {
-        return ItemStackUtil.canInsertIntoStack(inventory.getItem(1), result);
+        return ItemStackUtil.canInsertIntoStack(container.getItem(1), result);
     }
 
     private static boolean hasMinimumEnergy(ArcFurnaceBlockEntity blockEntity)

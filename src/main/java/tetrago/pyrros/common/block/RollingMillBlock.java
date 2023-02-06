@@ -10,11 +10,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
+import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.blockentity.RollingMillBlockEntity;
 import tetrago.pyrros.common.util.BlockEntityUtil;
 
@@ -57,6 +60,13 @@ public class RollingMillBlock extends MultiblockBlock
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
         return new RollingMillBlockEntity(pPos, pState);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
+    {
+        return BlockEntityUtil.tickerOf(pBlockEntityType, ModBlockEntities.ROLLING_MILL.get(), RollingMillBlockEntity::tick);
     }
 
     @Override

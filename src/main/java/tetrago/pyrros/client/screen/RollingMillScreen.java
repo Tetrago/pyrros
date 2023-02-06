@@ -60,5 +60,10 @@ public class RollingMillScreen extends ContainerScreen<RollingMillContainer>
         renderBackground(pPoseStack, BACKGROUND);
 
         mEnergyWidget.draw(pPoseStack, pPartialTick, pMouseX, pMouseY);
+
+        if(menu.isCrafting())
+        {
+            blit(pPoseStack, getX() + 68, getY() + 34, 176, 0, menu.getScaledProgress(), 16);
+        }
     }
 }
