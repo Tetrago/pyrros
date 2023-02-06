@@ -17,12 +17,16 @@ public class ModItems
 
     // --- Blocks ------------------------------------------------------------------------------------------------------
 
-    public static final RegistryObject<Item> ARC_FURNACE_CONTROLLER = fromBlock(ModBlocks.ARC_FURNACE);
+    public static final RegistryObject<Item> ARC_FURNACE = fromBlock(ModBlocks.ARC_FURNACE);
+    public static final RegistryObject<Item> ROLLING_MILL = fromBlock(ModBlocks.ROLLING_MILL);
     public static final RegistryObject<Item> ENERGY_PORT = fromBlock(ModBlocks.ENERGY_PORT);
     public static final RegistryObject<Item> ITEM_PORT = fromBlock(ModBlocks.ITEM_PORT);
     public static final RegistryObject<Item> MACHINE_FRAME = fromBlock(ModBlocks.MACHINE_FRAME);
     public static final RegistryObject<Item> ENCASED_MACHINE_FRAME = fromBlock(ModBlocks.ENCASED_MACHINE_FRAME);
     public static final RegistryObject<Item> REINFORCED_MACHINE_FRAME = fromBlock(ModBlocks.REINFORCED_MACHINE_FRAME);
+    public static final RegistryObject<Item> ROLLER = fromBlock(ModBlocks.ROLLER);
+    public static final RegistryObject<Item> BEARING = fromBlock(ModBlocks.BEARING);
+    public static final RegistryObject<Item> BASIC_MOTOR = fromMotorBlock(ModBlocks.BASIC_MOTOR);
     public static final RegistryObject<Item> STEEL_BLOCK = fromBlock(ModBlocks.STEEL_BLOCK);
     public static final RegistryObject<Item> TITANIUM_BLOCK = fromBlock(ModBlocks.TITANIUM_BLOCK);
     public static final RegistryObject<Item> ALUMINUM_BLOCK = fromBlock(ModBlocks.ALUMINUM_BLOCK);
@@ -43,6 +47,11 @@ public class ModItems
         return ITEMS.register(block.getId().getPath(), () -> new CoilBlockItem(block.get(), PROPERTIES));
     }
 
+    private static RegistryObject<Item> fromMotorBlock(RegistryObject<Block> block)
+    {
+        return ITEMS.register(block.getId().getPath(), () -> new MotorBlockItem(block.get(), PROPERTIES));
+    }
+
     // --- Items -------------------------------------------------------------------------------------------------------
 
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(PROPERTIES));
@@ -54,4 +63,5 @@ public class ModItems
     public static final RegistryObject<Item> ALUMINUM_INGOT = ITEMS.register("aluminum_ingot", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> ALUMINUM_NUGGET = ITEMS.register("aluminum_nugget", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> SLAG = ITEMS.register("slag", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate", () -> new Item(PROPERTIES));
 }

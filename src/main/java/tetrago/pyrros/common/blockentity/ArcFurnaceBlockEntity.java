@@ -33,6 +33,7 @@ import tetrago.pyrros.common.container.ArcFurnaceContainer;
 import tetrago.pyrros.common.item.ModItems;
 import tetrago.pyrros.common.recipe.ArcFurnaceRecipe;
 import tetrago.pyrros.common.util.BlockEntityUtil;
+import tetrago.pyrros.common.util.ItemStackUtil;
 
 import java.util.Map;
 import java.util.Optional;
@@ -41,7 +42,7 @@ import java.util.Random;
 public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements MenuProvider
 {
     public static final int ENERGY_COST = 700;
-    public static final int TIME = 150;
+    public static final int CRAFT_TIME = 150;
     public static final double SLAG_CHANCE = 0.2;
 
     private final ModEnergyStorage mEnergyStorage = new ModEnergyStorage(50000, 1000)
@@ -64,11 +65,11 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
     private final ContainerData mData;
     private int mProgress = 0;
-    private int mMaxProgress = TIME;
+    private int mMaxProgress = CRAFT_TIME;
 
     public ArcFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
-        super(ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), pPos, pBlockState);
+        super(ModBlockEntities.ARC_FURNACE.get(), pPos, pBlockState);
 
         mData = new ContainerData()
         {
@@ -106,7 +107,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         if(hasRecipe(blockEntity))
         {
             ++blockEntity.mProgress;
-            setChanged(level, pos, state);
+            blockEntity.setChanged();
 
             blockEntity.mEnergyStorage.extractEnergy(ENERGY_COST / blockEntity.mMaxProgress, false);
 
@@ -118,7 +119,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         else if(blockEntity.mProgress > 0)
         {
             blockEntity.mProgress = 0;
-            setChanged(level, pos, state);
+            blockEntity.setChanged();
         }
     }
 
@@ -129,15 +130,15 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
 
         recipe.ifPresent(r -> {
             blockEntity.mItemStackHandler.extractItem(0, 1, false);
-            blockEntity.mItemStackHandler.setStackInSlot(1, new ItemStack(r.getResultItem().getItem(), blockEntity.mItemStackHandler.getStackInSlot(1).getCount() + r.getResultItem().getCount()));
+            ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 1, r.getResultItem());
 
-            ItemStack stack = blockEntity.mItemStackHandler.getStackInSlot(2);
-            if((stack.isEmpty() || stack.getCount() + 1 <= stack.getMaxStackSize()) && new Random().nextDouble() <= SLAG_CHANCE)
+            if(new Random().nextDouble() <= SLAG_CHANCE)
             {
-                blockEntity.mItemStackHandler.setStackInSlot(2, new ItemStack(ModItems.SLAG.get(), stack.getCount() + 1));
+                ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 2, new ItemStack(ModItems.SLAG.get()));
             }
 
             blockEntity.mProgress = 0;
+            blockEntity.setChanged();
         });
     }
 
@@ -149,10 +150,9 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         return recipe.isPresent() && canInsertIntoOutput(container, recipe.get().getResultItem()) && hasMinimumEnergy(blockEntity);
     }
 
-    private static boolean canInsertIntoOutput(SimpleContainer inventory, ItemStack result)
+    private static boolean canInsertIntoOutput(SimpleContainer container, ItemStack result)
     {
-        final ItemStack stack = inventory.getItem(1);
-        return stack.isEmpty() || (stack.getItem() == result.getItem() && stack.getCount() + result.getCount() <= stack.getMaxStackSize());
+        return ItemStackUtil.canInsertIntoStack(container.getItem(1), result);
     }
 
     private static boolean hasMinimumEnergy(ArcFurnaceBlockEntity blockEntity)
@@ -161,7 +161,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    public @NotNull <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @NotNull Direction side)
     {
         if(cap == CapabilityEnergy.ENERGY)
         {
@@ -169,7 +169,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
         }
         else if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
         {
-            return mDirectionalItemStackHandler.getCapability(cap, side, level.getBlockState(getBlockPos()).getValue(FlatDirectionalBlock.DIRECTION));
+            return mDirectionalItemStackHandler.getCapability(side, getBlockState().getValue(FlatDirectionalBlock.DIRECTION));
         }
 
         return super.getMultiblockCapability(cap, side);

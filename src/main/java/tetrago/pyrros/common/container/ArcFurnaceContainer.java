@@ -7,15 +7,11 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import tetrago.pyrros.common.capability.ModEnergyStorage;
-import tetrago.pyrros.common.container.data.EnergyData;
 import tetrago.pyrros.common.container.slot.OutputSlot;
 
-public class ArcFurnaceContainer extends ContainerMenu
+public class ArcFurnaceContainer extends PoweredContainerMenu
 {
     private final ContainerData mData;
 
@@ -26,14 +22,12 @@ public class ArcFurnaceContainer extends ContainerMenu
 
     public ArcFurnaceContainer(int pContainerId, Inventory inv, BlockEntity blockEntity, ContainerData data)
     {
-        super(ModContainers.ARC_FURNACE_CONTROLLER.get(), pContainerId, blockEntity.getBlockPos(), inv);
+        super(ModContainers.ARC_FURNACE.get(), pContainerId, blockEntity.getBlockPos(), inv);
 
         mData = data;
 
         checkContainerSize(inv, 3);
-
-        addPlayerInventory();
-        addPlayerHotbar();
+        addPlayer();
 
         blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(cap -> {
             addSlot(new SlotItemHandler(cap, 0, 44, 35));
@@ -42,21 +36,6 @@ public class ArcFurnaceContainer extends ContainerMenu
         });
 
         addDataSlots(mData);
-
-        addDataSlots(new EnergyData()
-        {
-            @Override
-            protected int getEnergyStored()
-            {
-                return ArcFurnaceContainer.this.getEnergyStored();
-            }
-
-            @Override
-            protected void setEnergyStored(int energy)
-            {
-                blockEntity.getCapability(CapabilityEnergy.ENERGY).ifPresent(cap -> ((ModEnergyStorage)cap).setEnergyStored(energy));
-            }
-        });
     }
 
     @Override
@@ -76,15 +55,5 @@ public class ArcFurnaceContainer extends ContainerMenu
         int maxProgress = mData.get(1);
 
         return maxProgress > 0 ? progress * 22 / maxProgress : 0;
-    }
-
-    public int getEnergyStored()
-    {
-        return mBlockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
-    }
-
-    public int getMaxEnergyStored()
-    {
-        return mBlockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getMaxEnergyStored).orElse(0);
     }
 }

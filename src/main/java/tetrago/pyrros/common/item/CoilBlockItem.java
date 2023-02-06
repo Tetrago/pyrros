@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CoilBlockItem extends BlockItem
 {
-    public static final String TOOLTIP_COIL_STRENGTH = Pyrros.modid("text.{}.coil_strength");
+    public static final String TOOLTIP_COIL_STRENGTH = Pyrros.modid("tooltip.{}.coil_strength");
 
     public CoilBlockItem(Block pBlock, Properties pProperties)
     {

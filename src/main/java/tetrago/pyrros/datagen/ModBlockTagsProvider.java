@@ -20,6 +20,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider
     public static final TagKey<Block> STORAGE_BLOCKS_TITANIUM = BlockTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
     public static final TagKey<Block> STORAGE_BLOCKS_ALUMINUM = BlockTags.create(new ResourceLocation("forge", "storage_blocks/aluminum"));
     public static final TagKey<Block> COIL = BlockTags.create(Pyrros.loc("coil"));
+    public static final TagKey<Block> MOTOR = BlockTags.create(Pyrros.loc("motor"));
 
     public ModBlockTagsProvider(DataGenerator pGenerator, ExistingFileHelper helper)
     {
@@ -72,5 +73,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider
         tag(COIL)
                 .add(ModBlocks.COPPER_COIL.get())
                 .add(ModBlocks.GOLD_COIL.get());
+
+        tag(MOTOR)
+                .add(ModBlocks.BASIC_MOTOR.get());
     }
 }

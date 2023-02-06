@@ -1,0 +1,6 @@
+{
+  "parent": "pyrros:block/motor",
+  "textures": {
+    "texture": "pyrros:block/basic_motor"
+  }
+}

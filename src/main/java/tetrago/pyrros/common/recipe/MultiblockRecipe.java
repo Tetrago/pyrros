@@ -186,13 +186,13 @@ public class MultiblockRecipe implements Recipe<Container>
 
                     for(int x = 0; x < width; ++x)
                     {
-                        blocks[x][y][z] = string.charAt(x);
+                        blocks[x][y][z] = string.charAt(width - x - 1);
                     }
                 }
             }
 
             JsonObject anchor = pSerializedRecipe.getAsJsonObject("anchor");
-            BlockPos pos = new BlockPos(anchor.get("x").getAsInt(), anchor.get("y").getAsInt(), anchor.get("z").getAsInt());
+            BlockPos pos = new BlockPos(width - anchor.get("x").getAsInt() - 1, anchor.get("y").getAsInt(), anchor.get("z").getAsInt());
 
             return new MultiblockRecipe(pRecipeId, keys, blocks, pos);
         }

@@ -23,6 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider
     public static final TagKey<Item> STORAGE_BLOCKS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/titanium"));
     public static final TagKey<Item> STORAGE_BLOCKS_TITANIUM = ItemTags.create(new ResourceLocation("forge", "storage_blocks/aluminum"));
     public static final TagKey<Item> COIL = ItemTags.create(Pyrros.loc("coil"));
+    public static final TagKey<Item> MOTOR = ItemTags.create(Pyrros.loc("motor"));
 
     // --- Items -------------------------------------------------------------------------------------------------------
 
@@ -35,6 +36,8 @@ public class ModItemTagsProvider extends ItemTagsProvider
     public static final TagKey<Item> INGOTS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "ingots/aluminum"));
     public static final TagKey<Item> NUGGETS_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "nuggets/aluminum"));
     public static final TagKey<Item> SLAG = ItemTags.create(new ResourceLocation("forge", "slag"));
+    public static final TagKey<Item> PLATES = ItemTags.create(new ResourceLocation("forge", "plates"));
+    public static final TagKey<Item> PLATES_IRON = ItemTags.create(new ResourceLocation("forge", "plates/iron"));
 
     public ModItemTagsProvider(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, @Nullable ExistingFileHelper existingFileHelper)
     {
@@ -78,6 +81,9 @@ public class ModItemTagsProvider extends ItemTagsProvider
                 .add(ModItems.COPPER_COIL.get())
                 .add(ModItems.GOLD_COIL.get());
 
+        tag(MOTOR)
+                .add(ModItems.BASIC_MOTOR.get());
+
         // --- Items ---------------------------------------------------------------------------------------------------
 
         tag(Tags.Items.RAW_MATERIALS)
@@ -103,5 +109,9 @@ public class ModItemTagsProvider extends ItemTagsProvider
         tag(NUGGETS_ALUMINUM).add(ModItems.ALUMINUM_NUGGET.get());
 
         tag(SLAG).add(ModItems.SLAG.get());
+
+        tag(PLATES)
+                .add(ModItems.IRON_PLATE.get());
+        tag(PLATES_IRON).add(ModItems.IRON_PLATE.get());
     }
 }

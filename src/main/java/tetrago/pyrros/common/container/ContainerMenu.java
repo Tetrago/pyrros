@@ -102,6 +102,12 @@ public abstract class ContainerMenu extends AbstractContainerMenu
         addSlotRange(mInventory, 0, x, y, 9, dx);
     }
 
+    protected void addPlayer()
+    {
+        addPlayerInventory();
+        addPlayerHotbar();
+    }
+
     @Override
     public boolean stillValid(Player pPlayer)
     {

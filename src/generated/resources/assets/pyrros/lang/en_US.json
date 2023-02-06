@@ -1,6 +1,8 @@
 {
   "block.pyrros.aluminum_block": "Block of Aluminum",
   "block.pyrros.arc_furnace": "Arc Furnace",
+  "block.pyrros.basic_motor": "Basic Motor",
+  "block.pyrros.bearing": "Bearing",
   "block.pyrros.brookite_ore": "Brookite Ore",
   "block.pyrros.copper_coil": "Copper Coil",
   "block.pyrros.cryolite_ore": "Cryolite Ore",
@@ -12,10 +14,13 @@
   "block.pyrros.item_port": "Item Port",
   "block.pyrros.machine_frame": "Machine Frame",
   "block.pyrros.reinforced_machine_frame": "Reinforced Machine Frame",
+  "block.pyrros.roller": "Roller",
+  "block.pyrros.rolling_mill": "Rolling Mill",
   "block.pyrros.steel_block": "Block of Steel",
   "block.pyrros.titanium_block": "Block of Titanium",
   "item.pyrros.aluminum_ingot": "Aluminum Ingot",
   "item.pyrros.aluminum_nugget": "Aluminum Nugget",
+  "item.pyrros.iron_plate": "Iron Plate",
   "item.pyrros.raw_brookite": "Raw Brookite",
   "item.pyrros.raw_cryolite": "Raw Cryolite",
   "item.pyrros.slag": "Slag",
@@ -25,6 +30,8 @@
   "item.pyrros.titanium_nugget": "Titanium Nugget",
   "itemGroup.pyrros": "Pyrros",
   "screen.pyrros.arc_furnace": "Arc Furnace",
-  "text.pyrros.coil_strength": "Coil Strength",
-  "text.pyrros.tooltip_constructed": "Multiblock"
+  "screen.pyrros.rolling_mill": "Rolling Mill",
+  "text.pyrros.tooltip_constructed": "Multiblock",
+  "tooltip.pyrros.coil_strength": "Coil Strength",
+  "tooltip.pyrros.motor_strength": "Motor Strength"
 }

@@ -67,7 +67,7 @@ public class ArcFurnaceBlock extends MultiblockBlock
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType)
     {
-        return BlockEntityUtil.tickerOf(pBlockEntityType, ModBlockEntities.ARC_FURNACE_CONTROLLER.get(), ArcFurnaceBlockEntity::tick);
+        return BlockEntityUtil.tickerOf(pBlockEntityType, ModBlockEntities.ARC_FURNACE.get(), ArcFurnaceBlockEntity::tick);
     }
 
     @Override

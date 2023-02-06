@@ -24,7 +24,7 @@ public class OmnidirectionalBlock extends Block
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return super.getStateForPlacement(pContext).setValue(DIRECTION, pContext.getHorizontalDirection().getOpposite());
+        return super.getStateForPlacement(pContext).setValue(DIRECTION, pContext.getClickedFace());
     }
 
     @Override

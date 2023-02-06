@@ -1,8 +1,6 @@
 package tetrago.pyrros.client.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -12,7 +10,7 @@ import tetrago.pyrros.common.container.ArcFurnaceContainer;
 
 import java.util.Optional;
 
-public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContainer>
+public class ArcFurnaceScreen extends ContainerScreen<ArcFurnaceContainer>
 {
     public static final String TITLE = Pyrros.modid("screen.{}.arc_furnace");
     public static final ResourceLocation BACKGROUND = Pyrros.loc("textures/gui/arc_furnace.png");
@@ -29,10 +27,7 @@ public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContaine
     {
         super.init();
 
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
-
-        mEnergyWidget = new EnergyWidget(x + 8, y + 21, 16, 44)
+        mEnergyWidget = new EnergyWidget(getX() + 8, getY() + 21, 16, 44)
         {
             @Override
             protected int getEnergyStored()
@@ -49,14 +44,6 @@ public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContaine
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick)
-    {
-        renderBackground(pPoseStack);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        renderTooltip(pPoseStack, pMouseX, pMouseY);
-    }
-
-    @Override
     protected void renderTooltip(PoseStack pPoseStack, int pX, int pY)
     {
         super.renderTooltip(pPoseStack, pX, pY);
@@ -70,17 +57,13 @@ public class ArcFurnaceScreen extends AbstractContainerScreen<ArcFurnaceContaine
     @Override
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY)
     {
-        RenderSystem.setShaderTexture(0, BACKGROUND);
-
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
-        blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
+        renderBackground(pPoseStack, BACKGROUND);
 
         mEnergyWidget.draw(pPoseStack, pPartialTick, pMouseX, pMouseY);
 
         if(menu.isCrafting())
         {
-            blit(pPoseStack, x + 68, y + 34, 176, 0, menu.getScaledProgress(), 16);
+            blit(pPoseStack, getX() + 68, getY() + 34, 176, 0, menu.getScaledProgress(), 16);
         }
     }
 }

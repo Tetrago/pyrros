@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -19,7 +20,7 @@ public abstract class MultiblockProviderBlockEntity extends BlockEntity
     }
 
     @Nonnull
-    public abstract <T> LazyOptional<T> getMultiblockCapability(@Nonnull Capability<T> cap, @Nullable Direction side);
+    public abstract <T> LazyOptional<T> getMultiblockCapability(@Nonnull Capability<T> cap, @NotNull Direction side);
 
     public abstract boolean isConstructed();
     public abstract BlockPos getMultiblockPos();

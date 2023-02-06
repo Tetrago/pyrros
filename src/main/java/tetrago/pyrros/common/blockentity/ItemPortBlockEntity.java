@@ -20,7 +20,7 @@ public class ItemPortBlockEntity extends MultiblockComponentBlockEntity
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side)
     {
-        if(cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+        if(side != null && cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
         {
             return getMultiblockCapability(cap, side);
         }

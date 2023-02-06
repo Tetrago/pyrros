@@ -11,5 +11,6 @@ public class ModContainers
 {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Pyrros.MODID);
 
-    public static final RegistryObject<MenuType<ArcFurnaceContainer>> ARC_FURNACE_CONTROLLER = CONTAINERS.register("arc_furance_controller", () -> IForgeMenuType.create(ArcFurnaceContainer::new));
+    public static final RegistryObject<MenuType<ArcFurnaceContainer>> ARC_FURNACE = CONTAINERS.register("arc_furance", () -> IForgeMenuType.create(ArcFurnaceContainer::new));
+    public static final RegistryObject<MenuType<RollingMillContainer>> ROLLING_MILL = CONTAINERS.register("rolling_mill", () -> IForgeMenuType.create(RollingMillContainer::new));
 }

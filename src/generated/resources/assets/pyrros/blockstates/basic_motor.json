@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "omnidirectiona=down": {
+      "model": "pyrros:block/basic_motor",
+      "x": 180,
+      "y": 90
+    },
+    "omnidirectiona=up": {
+      "model": "pyrros:block/basic_motor",
+      "y": 90
+    },
+    "omnidirectiona=north": {
+      "model": "pyrros:block/basic_motor",
+      "x": 90
+    },
+    "omnidirectiona=south": {
+      "model": "pyrros:block/basic_motor",
+      "x": 90,
+      "y": 180
+    },
+    "omnidirectiona=west": {
+      "model": "pyrros:block/basic_motor",
+      "x": 90,
+      "y": 270
+    },
+    "omnidirectiona=east": {
+      "model": "pyrros:block/basic_motor",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

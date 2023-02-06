@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "constructed=false,flat_directional=down": {
+      "model": "pyrros:block/rolling_mill",
+      "y": 90
+    },
+    "constructed=true,flat_directional=down": {
+      "model": "pyrros:block/rolling_mill_constructed",
+      "y": 90
+    },
+    "constructed=false,flat_directional=up": {
+      "model": "pyrros:block/rolling_mill",
+      "y": 90
+    },
+    "constructed=true,flat_directional=up": {
+      "model": "pyrros:block/rolling_mill_constructed",
+      "y": 90
+    },
+    "constructed=false,flat_directional=north": {
+      "model": "pyrros:block/rolling_mill"
+    },
+    "constructed=true,flat_directional=north": {
+      "model": "pyrros:block/rolling_mill_constructed"
+    },
+    "constructed=false,flat_directional=south": {
+      "model": "pyrros:block/rolling_mill",
+      "y": 180
+    },
+    "constructed=true,flat_directional=south": {
+      "model": "pyrros:block/rolling_mill_constructed",
+      "y": 180
+    },
+    "constructed=false,flat_directional=west": {
+      "model": "pyrros:block/rolling_mill",
+      "y": 270
+    },
+    "constructed=true,flat_directional=west": {
+      "model": "pyrros:block/rolling_mill_constructed",
+      "y": 270
+    },
+    "constructed=false,flat_directional=east": {
+      "model": "pyrros:block/rolling_mill",
+      "y": 90
+    },
+    "constructed=true,flat_directional=east": {
+      "model": "pyrros:block/rolling_mill_constructed",
+      "y": 90
+    }
+  }
+}

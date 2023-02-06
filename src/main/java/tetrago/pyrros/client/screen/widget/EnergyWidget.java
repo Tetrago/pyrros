@@ -17,7 +17,7 @@ public abstract class EnergyWidget extends Widget
     @Override
     public List<Component> getTooltips()
     {
-        return List.of(new TextComponent(String.format("%.2f kFE/ %.2f kFE", getEnergyStored() / 1000.0f, getMaxEnergyStored() / 1000.0f)));
+        return List.of(new TextComponent(String.format("%.2f kFE/%.2f kFE", getEnergyStored() / 1000.0f, getMaxEnergyStored() / 1000.0f)));
     }
 
     @Override

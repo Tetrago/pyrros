@@ -1,0 +1,27 @@
+{
+  "type": "pyrros:multiblock",
+  "layers": [
+    [
+      "XRRX",
+      "I  E"
+    ],
+    [
+      "MRRB",
+      "   C"
+    ]
+  ],
+  "keys": {
+    "X": ["pyrros:machine_frame"],
+    "R": ["pyrros:roller"],
+    "M": ["pyrros:basic_motor"],
+    "B": ["pyrros:bearing"],
+    "I": ["pyrros:item_port"],
+    "E": ["pyrros:energy_port"],
+    "C": ["pyrros:rolling_mill"]
+  },
+  "anchor": {
+    "x": 3,
+    "y": 1,
+    "z": 0
+  }
+}

@@ -21,7 +21,7 @@ public abstract class MultiblockBlockEntity extends MultiblockProviderBlockEntit
 
     @NotNull
     @Override
-    public <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    public <T> LazyOptional<T> getMultiblockCapability(@NotNull Capability<T> cap, @NotNull Direction side)
     {
         return LazyOptional.empty();
     }

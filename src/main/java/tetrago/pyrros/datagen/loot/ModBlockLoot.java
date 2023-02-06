@@ -17,11 +17,15 @@ public class ModBlockLoot extends BlockLoot
         add(ModBlocks.DEEPSLATE_CRYOLITE_ORE.get(), block -> createOreDrop(block, ModItems.RAW_CRYOLITE.get()));
 
         dropSelf(ModBlocks.ARC_FURNACE.get());
+        dropSelf(ModBlocks.ROLLING_MILL.get());
         dropSelf(ModBlocks.ENERGY_PORT.get());
         dropSelf(ModBlocks.ITEM_PORT.get());
         dropSelf(ModBlocks.MACHINE_FRAME.get());
         dropSelf(ModBlocks.ENCASED_MACHINE_FRAME.get());
         dropSelf(ModBlocks.REINFORCED_MACHINE_FRAME.get());
+        dropSelf(ModBlocks.ROLLER.get());
+        dropSelf(ModBlocks.BEARING.get());
+        dropSelf(ModBlocks.BASIC_MOTOR.get());
         dropSelf(ModBlocks.STEEL_BLOCK.get());
         dropSelf(ModBlocks.TITANIUM_BLOCK.get());
         dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
