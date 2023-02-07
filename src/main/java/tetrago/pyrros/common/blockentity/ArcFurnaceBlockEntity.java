@@ -132,7 +132,7 @@ public class ArcFurnaceBlockEntity extends MultiblockBlockEntity implements Menu
             blockEntity.mItemStackHandler.extractItem(0, 1, false);
             ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 1, r.getResultItem());
 
-            if(new Random().nextDouble() <= SLAG_CHANCE)
+            if(Math.random() <= SLAG_CHANCE)
             {
                 ItemStackUtil.insertIntoItemStackHandler(blockEntity.mItemStackHandler, 2, new ItemStack(ModItems.SLAG.get()));
             }
