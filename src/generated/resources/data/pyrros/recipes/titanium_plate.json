@@ -1,9 +1,9 @@
 {
   "type": "pyrros:rolling_mill",
   "ingredient": {
-    "tag": "forge:ingots/copper"
+    "tag": "forge:ingots/titanium"
   },
   "result": {
-    "item": "pyrros:copper_plate"
+    "item": "pyrros:titanium_plate"
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:cryolite_ore_blasting"
+      "pyrros:cryolite_ore_smelting"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:cryolite_ore_blasting"
+        "recipe": "pyrros:cryolite_ore_smelting"
       }
     }
   },

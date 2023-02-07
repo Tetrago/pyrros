@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:deepslate_cryolite_ore_blasting"
+      "pyrros:deepslate_cryolite_ore_blasting"
     ]
   },
   "criteria": {
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:deepslate_cryolite_ore_blasting"
+        "recipe": "pyrros:deepslate_cryolite_ore_blasting"
       }
     }
   },

@@ -1,9 +1,9 @@
 {
   "type": "pyrros:rolling_mill",
   "ingredient": {
-    "tag": "forge:ingots/steel"
+    "tag": "forge:ingots/iron"
   },
   "result": {
-    "item": "pyrros:steel_plate"
+    "item": "pyrros:iron_plate"
   }
 }

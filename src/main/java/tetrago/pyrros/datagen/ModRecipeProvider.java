@@ -12,6 +12,8 @@ import net.minecraftforge.common.Tags;
 import tetrago.pyrros.Pyrros;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.item.ModItems;
+import tetrago.pyrros.datagen.recipe.ArcFurnaceRecipeBuilder;
+import tetrago.pyrros.datagen.recipe.RollingMillRecipeBuilder;
 
 import java.util.function.Consumer;
 
@@ -53,6 +55,38 @@ public class ModRecipeProvider extends RecipeProvider
         material(builder, "steel", ModItems.STEEL_NUGGET.get(), ModItems.STEEL_INGOT.get(), ModBlocks.STEEL_BLOCK.get());
         material(builder, "titanium", ModItems.TITANIUM_NUGGET.get(), ModItems.TITANIUM_INGOT.get(), ModBlocks.TITANIUM_BLOCK.get());
         material(builder, "aluminum", ModItems.ALUMINUM_NUGGET.get(), ModItems.ALUMINUM_INGOT.get(), ModBlocks.ALUMINUM_BLOCK.get());
+
+        ArcFurnaceRecipeBuilder.recipe(ModItems.STEEL_INGOT.get())
+                .require(Tags.Items.INGOTS_IRON)
+                .save(builder);
+
+        ArcFurnaceRecipeBuilder.recipe(ModItems.TITANIUM_INGOT.get())
+                .require(ModItemTagsProvider.RAW_MATERIALS_TITANIUM)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.IRON_PLATE.get())
+                .require(Tags.Items.INGOTS_IRON)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.COPPER_PLATE.get())
+                .require(Tags.Items.INGOTS_COPPER)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.GOLD_PLATE.get())
+                .require(Tags.Items.INGOTS_GOLD)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.STEEL_PLATE.get())
+                .require(ModItemTagsProvider.INGOTS_STEEL)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.ALUMINUM_PLATE.get())
+                .require(ModItemTagsProvider.INGOTS_ALUMINUM)
+                .save(builder);
+
+        RollingMillRecipeBuilder.recipe(ModItems.TITANIUM_PLATE.get())
+                .require(ModItemTagsProvider.INGOTS_TITANIUM)
+                .save(builder);
     }
 
     private void ore(Consumer<FinishedRecipe> builder, ImmutableList<ItemLike> smeltables, Item item)
@@ -60,11 +94,11 @@ public class ModRecipeProvider extends RecipeProvider
         smeltables.forEach(i -> {
             SimpleCookingRecipeBuilder.smelting(Ingredient.of(i), item, 0.7f, 200)
                     .unlockedBy(getHasName(i), has(i))
-                    .save(builder, i.asItem().getRegistryName().getPath() + "_smelting");
+                    .save(builder, Pyrros.loc(i.asItem().getRegistryName().getPath() + "_smelting"));
 
             SimpleCookingRecipeBuilder.blasting(Ingredient.of(i), item, 0.7f, 100)
                     .unlockedBy(getHasName(i), has(i))
-                    .save(builder, i.asItem().getRegistryName().getPath() + "_blasting");
+                    .save(builder, Pyrros.loc(i.asItem().getRegistryName().getPath() + "_blasting"));
         });
     }
 

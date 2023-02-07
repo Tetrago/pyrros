@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:raw_cryolite_smelting"
+      "pyrros:deepslate_cryolite_ore_smelting"
     ]
   },
   "criteria": {
-    "has_raw_cryolite": {
+    "has_deepslate_cryolite_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "pyrros:raw_cryolite"
+              "pyrros:deepslate_cryolite_ore"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:raw_cryolite_smelting"
+        "recipe": "pyrros:deepslate_cryolite_ore_smelting"
       }
     }
   },
   "requirements": [
     [
-      "has_raw_cryolite",
+      "has_deepslate_cryolite_ore",
       "has_the_recipe"
     ]
   ]
