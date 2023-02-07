@@ -38,6 +38,11 @@ public class ModItemTagsProvider extends ItemTagsProvider
     public static final TagKey<Item> SLAG = ItemTags.create(new ResourceLocation("forge", "slag"));
     public static final TagKey<Item> PLATES = ItemTags.create(new ResourceLocation("forge", "plates"));
     public static final TagKey<Item> PLATES_IRON = ItemTags.create(new ResourceLocation("forge", "plates/iron"));
+    public static final TagKey<Item> PLATES_COPPER = ItemTags.create(new ResourceLocation("forge", "plates/copper"));
+    public static final TagKey<Item> PLATES_GOLD = ItemTags.create(new ResourceLocation("forge", "plates/gold"));
+    public static final TagKey<Item> PLATES_STEEL = ItemTags.create(new ResourceLocation("forge", "plates/steel"));
+    public static final TagKey<Item> PLATES_ALUMINUM = ItemTags.create(new ResourceLocation("forge", "plates/aluminum"));
+    public static final TagKey<Item> PLATES_TITANIUM = ItemTags.create(new ResourceLocation("forge", "plates/titanium"));
 
     public ModItemTagsProvider(DataGenerator pGenerator, BlockTagsProvider pBlockTagsProvider, @Nullable ExistingFileHelper existingFileHelper)
     {
@@ -111,7 +116,17 @@ public class ModItemTagsProvider extends ItemTagsProvider
         tag(SLAG).add(ModItems.SLAG.get());
 
         tag(PLATES)
-                .add(ModItems.IRON_PLATE.get());
+                .add(ModItems.IRON_PLATE.get())
+                .add(ModItems.COPPER_PLATE.get())
+                .add(ModItems.GOLD_PLATE.get())
+                .add(ModItems.STEEL_PLATE.get())
+                .add(ModItems.ALUMINUM_PLATE.get())
+                .add(ModItems.TITANIUM_PLATE.get());
         tag(PLATES_IRON).add(ModItems.IRON_PLATE.get());
+        tag(PLATES_COPPER).add(ModItems.COPPER_PLATE.get());
+        tag(PLATES_GOLD).add(ModItems.GOLD_PLATE.get());
+        tag(PLATES_STEEL).add(ModItems.STEEL_PLATE.get());
+        tag(PLATES_ALUMINUM).add(ModItems.ALUMINUM_PLATE.get());
+        tag(PLATES_TITANIUM).add(ModItems.TITANIUM_PLATE.get());
     }
 }

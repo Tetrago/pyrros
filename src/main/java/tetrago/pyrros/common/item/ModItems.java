@@ -64,4 +64,9 @@ public class ModItems
     public static final RegistryObject<Item> ALUMINUM_NUGGET = ITEMS.register("aluminum_nugget", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> SLAG = ITEMS.register("slag", () -> new Item(PROPERTIES));
     public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> COPPER_PLATE = ITEMS.register("copper_plate", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> GOLD_PLATE = ITEMS.register("gold_plate", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> ALUMINUM_PLATE = ITEMS.register("aluminum_plate", () -> new Item(PROPERTIES));
+    public static final RegistryObject<Item> TITANIUM_PLATE = ITEMS.register("titanium_plate", () -> new Item(PROPERTIES));
 }

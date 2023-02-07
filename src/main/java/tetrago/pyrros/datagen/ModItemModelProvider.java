@@ -48,6 +48,11 @@ public class ModItemModelProvider extends ItemModelProvider
         simpleItem(ModItems.ALUMINUM_NUGGET);
         simpleItem(ModItems.SLAG);
         simpleItem(ModItems.IRON_PLATE);
+        simpleItem(ModItems.COPPER_PLATE);
+        simpleItem(ModItems.GOLD_PLATE);
+        simpleItem(ModItems.STEEL_PLATE);
+        simpleItem(ModItems.ALUMINUM_PLATE);
+        simpleItem(ModItems.TITANIUM_PLATE);
     }
 
     private void simpleBlockItem(final RegistryObject<Item> item)

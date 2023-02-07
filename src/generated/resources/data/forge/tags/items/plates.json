@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "pyrros:iron_plate"
+    "pyrros:iron_plate",
+    "pyrros:copper_plate",
+    "pyrros:gold_plate",
+    "pyrros:steel_plate",
+    "pyrros:aluminum_plate",
+    "pyrros:titanium_plate"
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "type": "pyrros:rolling_mill",
+  "ingredient": {
+    "tag": "forge:ingots/copper"
+  },
+  "result": {
+    "item": "pyrros:copper_plate"
+  }
+}
