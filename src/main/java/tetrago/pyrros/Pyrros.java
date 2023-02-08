@@ -12,6 +12,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import tetrago.pyrros.client.input.ModKeyBindings;
@@ -22,6 +23,7 @@ import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.config.ModCommonConfig;
 import tetrago.pyrros.common.container.ModContainers;
 import tetrago.pyrros.common.item.ModItems;
+import tetrago.pyrros.common.network.ModPacketHandler;
 import tetrago.pyrros.common.recipe.ModRecipeSerializers;
 
 @Mod(Pyrros.MODID)
@@ -35,6 +37,7 @@ public class Pyrros
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         bus.addListener(this::onClientSetup);
+        bus.addListener(this::onCommonSetup);
 
         ModBlocks.BLOCKS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
@@ -57,6 +60,11 @@ public class Pyrros
         });
 
         ModKeyBindings.register();
+    }
+
+    private void onCommonSetup(FMLCommonSetupEvent event)
+    {
+        ModPacketHandler.register();
     }
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MODID)
