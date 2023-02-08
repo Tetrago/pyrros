@@ -1,6 +1,5 @@
 package tetrago.pyrros.common.network;
 
-import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import tetrago.pyrros.Pyrros;

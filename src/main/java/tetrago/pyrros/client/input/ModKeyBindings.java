@@ -16,16 +16,16 @@ public class ModKeyBindings
 
     public static void register()
     {
-        ClientRegistry.registerKeyBinding(sUniverseMap = make("keyboard.key.m"));
+        ClientRegistry.registerKeyBinding(sUniverseMap = make(InputConstants.KEY_M));
     }
 
-    private static KeyMapping make(String key)
+    private static KeyMapping make(int key)
     {
         return make(key, KeyConflictContext.IN_GAME);
     }
 
-    private static KeyMapping make(String key, KeyConflictContext ctx)
+    private static KeyMapping make(int key, KeyConflictContext ctx)
     {
-        return new KeyMapping(UNIVERSE_MAP, ctx, InputConstants.getKey(key), CATEGORY);
+        return new KeyMapping(UNIVERSE_MAP, ctx, InputConstants.Type.KEYSYM, key, CATEGORY);
     }
 }
