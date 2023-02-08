@@ -34,6 +34,8 @@
   "item.pyrros.titanium_nugget": "Titanium Nugget",
   "item.pyrros.titanium_plate": "Titanium Plate",
   "itemGroup.pyrros": "Pyrros",
+  "key.categories.pyrros": "Pyrros",
+  "key.universe_map": "Universe Map",
   "screen.pyrros.arc_furnace": "Arc Furnace",
   "screen.pyrros.rolling_mill": "Rolling Mill",
   "text.pyrros.tooltip_constructed": "Multiblock",

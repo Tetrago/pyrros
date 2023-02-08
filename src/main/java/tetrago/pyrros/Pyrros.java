@@ -1,6 +1,9 @@
 package tetrago.pyrros;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -8,8 +11,12 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import tetrago.pyrros.client.input.ModKeyBindings;
+import tetrago.pyrros.client.screen.ArcFurnaceScreen;
+import tetrago.pyrros.client.screen.RollingMillScreen;
 import tetrago.pyrros.common.block.ModBlocks;
 import tetrago.pyrros.common.blockentity.ModBlockEntities;
 import tetrago.pyrros.common.config.ModCommonConfig;
@@ -27,6 +34,8 @@ public class Pyrros
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        bus.addListener(this::onClientSetup);
+
         ModBlocks.BLOCKS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModContainers.CONTAINERS.register(bus);
@@ -34,6 +43,20 @@ public class Pyrros
         ModRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModCommonConfig.SPEC, "pyrros-common.toml");
+    }
+
+    private void onClientSetup(FMLClientSetupEvent event)
+    {
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MACHINE_FRAME.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.BEARING.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.BASIC_MOTOR.get(), RenderType.cutout());
+
+            MenuScreens.register(ModContainers.ARC_FURNACE.get(), ArcFurnaceScreen::new);
+            MenuScreens.register(ModContainers.ROLLING_MILL.get(), RollingMillScreen::new);
+        });
+
+        ModKeyBindings.register();
     }
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(MODID)

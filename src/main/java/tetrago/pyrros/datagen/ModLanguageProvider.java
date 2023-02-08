@@ -3,6 +3,7 @@ package tetrago.pyrros.datagen;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import tetrago.pyrros.Pyrros;
+import tetrago.pyrros.client.input.ModKeyBindings;
 import tetrago.pyrros.client.screen.ArcFurnaceScreen;
 import tetrago.pyrros.client.screen.RollingMillScreen;
 import tetrago.pyrros.common.block.ModBlocks;
@@ -21,6 +22,9 @@ public class ModLanguageProvider extends LanguageProvider
     @Override
     protected void addTranslations()
     {
+        add(ModKeyBindings.CATEGORY, "Pyrros");
+        add(ModKeyBindings.UNIVERSE_MAP, "Universe Map");
+
         add(ArcFurnaceScreen.TITLE, "Arc Furnace");
         add(RollingMillScreen.TITLE, "Rolling Mill");
 
